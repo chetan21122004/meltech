@@ -1,8 +1,16 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Star } from "lucide-react";
-import testimonialBg from "@/assets/testimonial-bg.jpg";
+import { useRef, useState } from "react";
+import { Star, ArrowUpRight } from "lucide-react";
+import { Button } from "./ui/button";
+
+// Avatar images - using professional placeholder avatars
+const avatars = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
+];
 
 const testimonials = [
   {
@@ -32,71 +40,125 @@ const stats = [
 const Testimonials = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="testimonials" className="py-24 relative overflow-hidden" ref={ref}>
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${testimonialBg})` }}
-      >
-        <div className="absolute inset-0 bg-card/90" />
+    <section id="testimonials" className="py-24 bg-background relative overflow-hidden" ref={ref}>
+      {/* Decorative curved shape on the right */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[500px] pointer-events-none">
+        <div className="absolute inset-0 border-[40px] border-muted rounded-[200px] opacity-50" 
+          style={{ 
+            clipPath: "inset(0 0 0 50%)",
+            borderColor: "hsl(var(--muted))"
+          }} 
+        />
       </div>
 
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left - Reviews Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-8">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl font-bold text-card-foreground">5.9K Reviews</span>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-              </div>
-              <div className="flex -space-x-3 mb-4">
-                {[...Array(4)].map((_, i) => (
-                  <div 
-                    key={i}
-                    className="w-12 h-12 rounded-full bg-muted border-2 border-card flex items-center justify-center text-lg"
-                  >
-                    👤
-                  </div>
+        {/* Top Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-center justify-between gap-6 mb-12"
+        >
+          {/* Left side - Reviews, Avatars, Trust text */}
+          <div className="flex flex-wrap items-center gap-8">
+            {/* Reviews count & stars */}
+            <div>
+              <span className="text-2xl font-bold text-foreground block">5.9K Reviews</span>
+              <div className="flex gap-0.5 mt-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-muted-foreground">
-                Trusted by <span className="text-primary font-semibold">industry-leading OEMs</span>
-              </p>
             </div>
-          </motion.div>
 
-          {/* Right - Testimonials */}
+            {/* Avatar stack */}
+            <div className="flex -space-x-3">
+              {avatars.map((avatar, i) => (
+                <div 
+                  key={i}
+                  className="w-12 h-12 rounded-full border-2 border-background overflow-hidden"
+                >
+                  <img 
+                    src={avatar} 
+                    alt={`Customer ${i + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Trusted by text */}
+            <div>
+              <span className="text-muted-foreground block">Trusted by</span>
+              <span className="text-foreground font-semibold">industry-leading OEMs</span>
+            </div>
+          </div>
+
+          {/* Discover More button */}
+          <Button variant="industrial" size="lg" className="gap-2 pr-2">
+            DISCOVER MORE
+            <span className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center">
+              <ArrowUpRight className="w-5 h-5 text-background" />
+            </span>
+          </Button>
+        </motion.div>
+
+        {/* Testimonial Content */}
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
+          {/* Main Quote Area */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="lg:col-span-10"
           >
-            {testimonials.map((testimonial, index) => (
+            <AnimatePresence mode="wait">
               <motion.div
-                key={testimonial.author}
+                key={activeIndex}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className={`p-6 rounded-3xl ${index === 0 ? 'bg-card border border-border/10' : 'bg-secondary/30'}`}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
               >
-                <p className="text-card-foreground mb-4 italic">"{testimonial.quote}"</p>
+                {/* Quote */}
+                <blockquote className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground leading-[1.3] tracking-tight mb-10">
+                  "{testimonials[activeIndex].quote}"
+                </blockquote>
+
+                {/* Author */}
                 <div>
-                  <span className="font-bold text-card-foreground">{testimonial.author}</span>
-                  <span className="text-muted-foreground text-sm block">{testimonial.position}</span>
+                  <p className="text-lg font-bold text-foreground">
+                    {testimonials[activeIndex].author}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {testimonials[activeIndex].position}
+                  </p>
                 </div>
               </motion.div>
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Pagination Dots */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="lg:col-span-2 flex lg:flex-col justify-center items-center gap-4"
+          >
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                  index === activeIndex
+                    ? "bg-primary border-4 border-primary/30 scale-125"
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
             ))}
           </motion.div>
         </div>
@@ -106,14 +168,14 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {stats.map((stat, index) => (
             <div key={stat.label} className="text-center relative">
               {index > 0 && (
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-muted-foreground/0 via-muted-foreground/30 to-muted-foreground/0 hidden md:block" />
               )}
-              <div className="text-5xl md:text-6xl font-bold text-card-foreground mb-2">
+              <div className="text-5xl md:text-6xl font-bold text-foreground mb-2">
                 {stat.value}<span className="text-primary">{stat.suffix}</span>
               </div>
               <p className="text-muted-foreground">{stat.label}</p>
