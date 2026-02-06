@@ -2,42 +2,47 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-
-const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#about" },
-  { name: "Products", href: "#products" },
-  { name: "Quality", href: "#quality" },
-  { name: "Safety", href: "#safety" },
-  { name: "Industries", href: "#industries" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
-];
-
+const navLinks = [{
+  name: "Home",
+  href: "#"
+}, {
+  name: "About",
+  href: "#about"
+}, {
+  name: "Products",
+  href: "#products"
+}, {
+  name: "Quality",
+  href: "#quality"
+}, {
+  name: "Safety",
+  href: "#safety"
+}, {
+  name: "Industries",
+  href: "#industries"
+}, {
+  name: "Blog",
+  href: "#blog"
+}, {
+  name: "Contact",
+  href: "#contact"
+}];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  return <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
       {/* Main Navigation - White Pill Shape */}
       <div className="bg-white rounded-full py-3 px-6 shadow-xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <img src={logo} alt="Meltech" className="h-14 w-auto" />
+            <img alt="Meltech" className="h-14 w-auto" src="https://krina.in/clients/meltech-04/assets/images/logo-2.png" />
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-card hover:text-primary transition-colors font-medium text-sm"
-              >
+            {navLinks.map(link => <a key={link.name} href={link.href} className="text-card hover:text-primary transition-colors font-medium text-sm">
                 {link.name}
-              </a>
-            ))}
+              </a>)}
           </nav>
 
           {/* CTA Buttons */}
@@ -57,38 +62,24 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-card p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="lg:hidden text-card p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 border-t border-border/10 pt-4">
+        {isMenuOpen && <nav className="lg:hidden mt-4 pb-4 border-t border-border/10 pt-4">
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-card hover:text-primary transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+              {navLinks.map(link => <a key={link.name} href={link.href} className="text-card hover:text-primary transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
                   {link.name}
-                </a>
-              ))}
+                </a>)}
               <Button variant="industrial" className="mt-4 gap-2">
                 LIVE BROCHURE
                 <ArrowUpRight className="w-4 h-4" />
               </Button>
             </div>
-          </nav>
-        )}
+          </nav>}
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
