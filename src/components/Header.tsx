@@ -24,10 +24,10 @@ const navLinks = [{
   href: "/industries"
 }, {
   name: "Blog",
-  href: "/#blog"
+  href: "/blog"
 }, {
   name: "Contact",
-  href: "/#contact"
+  href: "/contact"
 }];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,12 +71,14 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-0">
-            <Button variant="industrial" size="lg" className="gap-2 pr-2">
-              LIVE BROCHURE
-              <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
-                <ArrowUpRight className="w-4 h-4 text-card-foreground" />
-              </span>
-            </Button>
+            <Link to="/live-brochure">
+              <Button variant="industrial" size="lg" className="gap-2 pr-2">
+                LIVE BROCHURE
+                <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
+                  <ArrowUpRight className="w-4 h-4 text-card-foreground" />
+                </span>
+              </Button>
+            </Link>
             <button className="w-12 h-12 rounded-full bg-card flex items-center justify-center ml-2 hover:bg-card/90 transition-colors">
               <div className="flex flex-col gap-1.5">
                 <span className="w-5 h-0.5 bg-card-foreground rounded-full" />
@@ -115,10 +117,12 @@ const Header = () => {
                   </Link>
                 )
               )}
-              <Button variant="industrial" className="mt-4 gap-2">
-                LIVE BROCHURE
-                <ArrowUpRight className="w-4 h-4" />
-              </Button>
+              <Link to="/live-brochure">
+                <Button variant="industrial" className="mt-4 gap-2">
+                  LIVE BROCHURE
+                  <ArrowUpRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </nav>}
       </div>

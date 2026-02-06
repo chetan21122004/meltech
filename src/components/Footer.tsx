@@ -1,5 +1,6 @@
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -38,57 +39,72 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Meltech" className="h-12 w-auto mb-6" />
             <p className="text-muted-foreground mb-6">
-              Precision manufacturing solutions from prototype to production. 
-              Trusted by industry-leading OEMs for over 25 years.
+              Meltech Melting Technology delivers precision-engineered parts through advanced machining, stamping, molding, and assembly—ensuring consistent quality and on-time delivery worldwide.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-sm text-muted-foreground">FOLLOW US:</span>
+              <div className="flex gap-2">
+                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
+                  <Facebook className="w-4 h-4" />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
+                  <Twitter className="w-4 h-4" />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Quick Links</h4>
+            <h4 className="text-xl font-bold mb-6 uppercase tracking-wide">Quick Links</h4>
             <ul className="space-y-3">
-              {["Home", "About Us", "Products", "Services", "Quality", "Contact"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4" />
-                    {link}
-                  </a>
+              {[
+                { name: "Home", href: "/" },
+                { name: "About", href: "/about" },
+                { name: "Products", href: "/products" },
+                { name: "Quality", href: "/quality" },
+                { name: "Safety", href: "/safety" },
+                { name: "Industries", href: "/industries" },
+                { name: "Blog", href: "/blog" },
+                { name: "Contact", href: "/contact" }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link to={link.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Products */}
+          {/* Capabilities */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Our Products</h4>
+            <h4 className="text-xl font-bold mb-6 uppercase tracking-wide">Capabilities</h4>
             <ul className="space-y-3">
               {[
-                "Brass Inserts",
-                "Stamping Components",
-                "CNC Machined Parts",
-                "Sliding Head Parts",
-                "Plastic Moulding",
-                "Custom Components"
+                { name: "Brass C-PVC & U-PVC Inserts", href: "/products/brass-cpvc-upvc-inserts" },
+                { name: "Micro Turning Components", href: "/products/micro-turning-components" },
+                { name: "Turning Components", href: "/products/turning-components" },
+                { name: "Brass CNC Parts", href: "/products/brass-cnc-parts" },
+                { name: "Stamping & Sheet Cutting", href: "/products" },
+                { name: "Brass Gas Parts", href: "/products" },
+                { name: "Sliding Head Components", href: "/products" },
+                { name: "Turn-Mill Parts", href: "/products" },
+                { name: "Brass Electrical Parts", href: "/products" },
+                { name: "Hydraulic & Pneumatic Parts", href: "/products" }
               ].map((product) => (
-                <li key={product}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4" />
-                    {product}
-                  </a>
+                <li key={product.name}>
+                  <Link to={product.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    {product.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -96,18 +112,21 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Newsletter</h4>
+            <h4 className="text-xl font-bold mb-6 uppercase tracking-wide">Newsletter</h4>
             <p className="text-muted-foreground mb-4">
-              Subscribe to our newsletter for the latest updates and industry insights.
+              Stay updated with the latest news, product launches, and industry insights from Meltech Melting Technology.
             </p>
             <div className="flex flex-col gap-3">
               <input
                 type="email"
-                placeholder="Your email address"
-                className="px-4 py-3 bg-secondary rounded-full text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter Your Email Address"
+                className="px-4 py-3 bg-secondary rounded-lg text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button variant="industrial" className="rounded-full">
-                Subscribe Now
+              <Button variant="industrial" className="rounded-full gap-2 pr-2 w-fit">
+                SUBSCRIBE
+                <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
+                  <ArrowUpRight className="w-4 h-4 text-card-foreground" />
+                </span>
               </Button>
             </div>
           </div>
@@ -118,13 +137,11 @@ const Footer = () => {
       <div className="border-t border-border/10 py-6">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 Meltech Melting Technology. All Rights Reserved.
+            Copyright © 2025 - All Rights Reserved By Meltech Melting Technology
           </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-primary transition-colors">Sitemap</a>
-          </div>
+          <p className="text-muted-foreground text-sm">
+            Crafted by Krina Web®
+          </p>
         </div>
       </div>
     </footer>
