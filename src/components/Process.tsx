@@ -97,14 +97,19 @@ const Process = () => {
               <motion.div
                 key={step.step}
                 initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative h-full rounded-3xl overflow-hidden cursor-pointer"
-                style={{
+                animate={{ 
+                  opacity: isInView ? 1 : 0, 
+                  y: isInView ? 0 : 50,
                   flex: isHovered ? 3 : 1,
-                  transition: "flex 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   minWidth: isHovered ? "350px" : "120px",
                 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  flex: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
+                  minWidth: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
+                }}
+                className="relative h-full rounded-3xl overflow-hidden cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -119,9 +124,10 @@ const Process = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
 
                 {/* Collapsed State - Vertical Text */}
-                <div
-                  className="absolute inset-0 flex flex-col items-center justify-end pb-8 transition-opacity duration-300"
-                  style={{ opacity: isHovered ? 0 : 1 }}
+                <motion.div
+                  className="absolute inset-0 flex flex-col items-center justify-end pb-8"
+                  animate={{ opacity: isHovered ? 0 : 1 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                   <div className="flex flex-col items-center gap-4">
                     <span
@@ -145,12 +151,13 @@ const Process = () => {
                       {step.category}
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Expanded State - Full Content */}
-                <div
-                  className="absolute inset-0 flex flex-col justify-end p-8 transition-opacity duration-300"
-                  style={{ opacity: isHovered ? 1 : 0 }}
+                <motion.div
+                  className="absolute inset-0 flex flex-col justify-end p-8"
+                  animate={{ opacity: isHovered ? 1 : 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut", delay: isHovered ? 0.15 : 0 }}
                 >
                   <div className="space-y-4">
                     {/* Step Number */}
@@ -196,7 +203,7 @@ const Process = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             );
           })}
