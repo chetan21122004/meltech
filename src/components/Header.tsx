@@ -1,48 +1,72 @@
 import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
+
 const navLinks = [{
   name: "Home",
-  href: "#"
+  href: "/"
 }, {
   name: "About",
-  href: "#about"
+  href: "/about"
 }, {
   name: "Products",
-  href: "#products"
+  href: "/#products"
 }, {
   name: "Quality",
-  href: "#quality"
+  href: "/#quality"
 }, {
   name: "Safety",
-  href: "#safety"
+  href: "/#safety"
 }, {
   name: "Industries",
-  href: "#industries"
+  href: "/#industries"
 }, {
   name: "Blog",
-  href: "#blog"
+  href: "/#blog"
 }, {
   name: "Contact",
-  href: "#contact"
+  href: "/#contact"
 }];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  
   return <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
       {/* Main Navigation - White Pill Shape */}
       <div className="bg-white rounded-full py-3 px-6 shadow-xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img alt="Meltech" className="h-14 w-auto" src="https://krina.in/clients/meltech-04/assets/images/logo-2.png" />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map(link => <a key={link.name} href={link.href} className="text-card hover:text-primary transition-colors font-medium text-sm">
-                {link.name}
-              </a>)}
+            {navLinks.map(link => {
+              const isActive = link.href === "/" 
+                ? location.pathname === "/" 
+                : location.pathname === link.href || (link.href.startsWith("/#") && location.pathname === "/");
+              
+              return link.href.startsWith("/#") ? (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  className={`hover:text-primary transition-colors font-medium text-sm ${isActive ? 'text-primary' : 'text-card'}`}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link 
+                  key={link.name} 
+                  to={link.href} 
+                  className={`hover:text-primary transition-colors font-medium text-sm ${isActive ? 'text-primary' : 'text-card'}`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTA Buttons */}
@@ -70,9 +94,27 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <nav className="lg:hidden mt-4 pb-4 border-t border-border/10 pt-4">
             <div className="flex flex-col gap-4">
-              {navLinks.map(link => <a key={link.name} href={link.href} className="text-card hover:text-primary transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
-                  {link.name}
-                </a>)}
+              {navLinks.map(link => 
+                link.href.startsWith("/#") ? (
+                  <a 
+                    key={link.name} 
+                    href={link.href} 
+                    className="text-card hover:text-primary transition-colors font-medium" 
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link 
+                    key={link.name} 
+                    to={link.href} 
+                    className="text-card hover:text-primary transition-colors font-medium" 
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
               <Button variant="industrial" className="mt-4 gap-2">
                 LIVE BROCHURE
                 <ArrowUpRight className="w-4 h-4" />
