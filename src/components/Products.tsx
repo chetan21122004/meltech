@@ -54,72 +54,77 @@ const ProductCard = ({
     offset: ["start end", "end start"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.9, 1, 1, 0.95]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.6, 1, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.92, 1, 1, 0.96]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.7, 1, 1, 0.85]);
+
+  const isRight = product.cardPosition === "right";
 
   return (
     <motion.div
       ref={cardRef}
       style={{ scale, opacity }}
-      className="sticky top-24 h-[85vh] mb-8"
+      className="sticky top-20 h-[80vh] min-h-[600px] mb-6"
     >
-      <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+      <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl">
         {/* Background Image */}
         <img
           src={product.image}
           alt={product.title}
           className="w-full h-full object-cover"
         />
-        
-        {/* Subtle overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+
+        {/* Orange Dot Indicator - positioned outside the info card */}
+        <div 
+          className={`absolute top-1/2 ${
+            isRight ? "right-[420px] md:right-[460px]" : "left-[420px] md:left-[460px]"
+          } z-10`}
+        >
+          <div className="w-4 h-4 rounded-full bg-primary border-[3px] border-primary/30" />
+        </div>
 
         {/* Info Card Overlay */}
         <div 
           className={`absolute top-1/2 -translate-y-1/2 ${
-            product.cardPosition === "left" ? "left-8 md:left-16" : "right-8 md:right-16"
+            isRight ? "right-6 md:right-12" : "left-6 md:left-12"
           }`}
         >
-          <div className="bg-card/95 backdrop-blur-sm rounded-3xl p-8 md:p-10 max-w-sm shadow-xl">
+          <div className="bg-white rounded-[1.5rem] p-8 md:p-10 w-[340px] md:w-[400px] shadow-xl relative">
             {/* Category */}
-            <span className="text-primary font-semibold text-sm md:text-base uppercase tracking-wide">
+            <h4 className="text-primary font-semibold text-base tracking-wide">
               {product.category}
-            </span>
+            </h4>
             
             {/* Location */}
-            <div className="flex items-center gap-2 text-muted-foreground mt-2">
-              <MapPin className="w-4 h-4" />
-              <span className="text-sm md:text-base">{product.location}</span>
+            <div className="flex items-center gap-2 text-foreground/80 mt-2">
+              <MapPin className="w-4 h-4 text-foreground/60" strokeWidth={1.5} />
+              <span className="text-sm font-medium">{product.location}</span>
             </div>
 
             {/* Title */}
-            <h3 className="text-2xl md:text-3xl font-bold text-card-foreground mt-6 leading-tight">
+            <h3 className="text-[1.75rem] md:text-[2rem] font-bold text-foreground mt-6 leading-[1.2] tracking-tight">
               {product.title}
             </h3>
 
             {/* Description */}
-            <p className="text-muted-foreground text-sm md:text-base mt-4 leading-relaxed">
+            <p className="text-muted-foreground text-[15px] mt-5 leading-relaxed">
               {product.description}
             </p>
 
-            {/* Dot indicator */}
-            <div className="flex items-center justify-between mt-6">
-              <div className="w-3 h-3 rounded-full bg-primary/30 border-2 border-primary animate-pulse" />
-              
-              {/* Arrow Button */}
+            {/* Arrow Button - bottom right */}
+            <div className="flex justify-end mt-6">
               <a 
                 href="#"
                 className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform duration-300 shadow-lg"
               >
-                <ArrowUpRight className="w-6 h-6" />
+                <ArrowUpRight className="w-6 h-6" strokeWidth={2.5} />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <div className="w-16 h-1 bg-white/30 rounded-full" />
+        {/* Bottom scroll indicator line */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+          <div className="w-20 h-1 bg-white/40 rounded-full" />
         </div>
       </div>
     </motion.div>
@@ -131,7 +136,7 @@ const Products = () => {
 
   return (
     <section id="products" className="py-24 bg-muted" ref={containerRef}>
-      <div className="container">
+      <div className="container max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.span
@@ -148,7 +153,7 @@ const Products = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight"
           >
             High-Precision Components Built For<br />Performance
           </motion.h2>
