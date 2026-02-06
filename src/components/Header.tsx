@@ -15,13 +15,13 @@ const navLinks = [{
   href: "/products"
 }, {
   name: "Quality",
-  href: "/#quality"
+  href: "/quality"
 }, {
   name: "Safety",
-  href: "/#safety"
+  href: "/safety"
 }, {
   name: "Industries",
-  href: "/#industries"
+  href: "/industries"
 }, {
   name: "Blog",
   href: "/#blog"
