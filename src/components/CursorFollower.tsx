@@ -63,7 +63,7 @@ const CursorFollower = () => {
 
   return (
     <>
-      {/* Main cursor dot - Orange filled circle */}
+      {/* Main cursor dot - Orange filled circle - disappears on button hover */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999]"
         style={{
@@ -71,12 +71,12 @@ const CursorFollower = () => {
           y: dotYSpring,
         }}
         animate={{
-          scale: isHoveringButton ? 1.5 : 1,
-          opacity: isVisible ? 1 : 0,
+          scale: isHoveringButton ? 0 : 1,
+          opacity: isVisible && !isHoveringButton ? 1 : 0,
         }}
         transition={{
-          scale: { type: "spring", damping: 20, stiffness: 300 },
-          opacity: { duration: 0.2 },
+          scale: { type: "spring", damping: 25, stiffness: 400 },
+          opacity: { duration: 0.15 },
         }}
       >
         <div 
@@ -84,7 +84,7 @@ const CursorFollower = () => {
         />
       </motion.div>
 
-      {/* Outer ring - Orange stroke circle */}
+      {/* Outer ring - Orange stroke circle - scales up on button hover */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998]"
         style={{
@@ -92,7 +92,7 @@ const CursorFollower = () => {
           y: ringYSpring,
         }}
         animate={{
-          scale: isHoveringButton ? 1.5 : 1,
+          scale: isHoveringButton ? 1.8 : 1,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{

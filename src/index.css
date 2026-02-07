@@ -142,53 +142,39 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .text-stroke-white {
-    -webkit-text-stroke: 2px white;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Wave animation for button hover */
-  @keyframes waveReveal {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
-
-  .btn-wave-hover {
+  /* Smooth fill animation for button hover */
+  .btn-fill-hover {
     position: relative;
     overflow: hidden;
-    transition: color 0.4s ease;
+    z-index: 1;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .btn-wave-hover::before {
+  .btn-fill-hover::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.8) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
   }
 
-  .btn-wave-hover:hover::before {
-    opacity: 1;
-    animation: waveReveal 0.8s ease-out forwards;
+  .btn-fill-hover:hover::before {
+    transform: scaleX(1);
   }
 
-  .btn-wave-hover:hover {
-    color: hsl(var(--foreground));
-    background-color: white;
+  .btn-fill-hover:hover {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  /* For links that should also have the effect */
+  a.btn-fill-hover:hover {
+    color: hsl(var(--foreground)) !important;
   }
 
   /* Industrial gradient backgrounds */
