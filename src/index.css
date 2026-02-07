@@ -253,27 +253,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(24 100% 45%);
 }
-
-/* Product card flip animation */
-.flip-card {
-  perspective: 1200px;
-}
-
-.flip-card-inner {
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
-}

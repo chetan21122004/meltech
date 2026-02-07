@@ -107,58 +107,58 @@ const ProductCard = ({ product, index, isInView }: { product: typeof products[0]
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="flip-card h-[280px]"
+      className="group relative h-[280px] rounded-2xl overflow-hidden cursor-pointer"
     >
-      <div className="flip-card-inner relative w-full h-full">
-        {/* Front Face - White card */}
-        <div className="flip-card-front absolute inset-0 bg-background rounded-2xl p-8 border border-border/50 flex flex-col justify-between">
-          <div>
-            <h4 className="text-xl font-bold text-foreground mb-4">
-              <Link to={product.link} className="hover:text-primary transition-colors">
-                {product.title}
-              </Link>
-            </h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {product.description}
-            </p>
+      {/* Default white background */}
+      <div className="absolute inset-0 bg-background border border-border/50 rounded-2xl transition-opacity duration-500 group-hover:opacity-0" />
+
+      {/* Dark hover background with image */}
+      <div className="absolute inset-0 bg-card rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        {/* Product image - tilted and positioned at bottom right */}
+        <div className="absolute -right-6 -bottom-4 w-[65%] h-[75%] transition-all duration-700 ease-out transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+          <div className="relative w-full h-full">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-full object-cover rounded-xl shadow-2xl"
+              style={{ transform: "rotate(-8deg)" }}
+            />
+            {/* Second tilted image behind */}
+            <img
+              src={product.image}
+              alt=""
+              className="absolute -right-4 top-4 w-[90%] h-[90%] object-cover rounded-xl shadow-xl opacity-60"
+              style={{ transform: "rotate(4deg)" }}
+            />
           </div>
-          <Link
-            to={product.link}
-            className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all"
-          >
-            Read More
-            <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
+      </div>
 
-        {/* Back Face - Image with dark overlay */}
-        <div className="flip-card-back absolute inset-0 rounded-2xl overflow-hidden flex flex-col justify-between p-8">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-foreground/85 via-foreground/70 to-foreground/50" />
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col justify-between p-8">
+        <div>
+          {/* Orange dot - visible on hover */}
+          <div className="w-3 h-3 rounded-full bg-primary mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <div className="relative z-10">
-            <div className="w-8 h-8 rounded-full border-2 border-primary flex items-center justify-center mb-4">
-              <div className="w-2 h-2 rounded-full bg-primary" />
-            </div>
-            <h4 className="text-xl font-bold text-background mb-3">
+          {/* Orange circle icon - visible on hover */}
+          <div className="absolute top-16 left-20 w-6 h-6 rounded-full border-2 border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+
+          <h4 className="text-xl font-bold text-foreground group-hover:text-card-foreground mb-4 transition-colors duration-500">
+            <Link to={product.link}>
               {product.title}
-            </h4>
-            <p className="text-background/70 text-sm leading-relaxed">
-              {product.description}
-            </p>
-          </div>
-          <Link
-            to={product.link}
-            className="relative z-10 inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all"
-          >
-            Read More
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+            </Link>
+          </h4>
+          <p className="text-muted-foreground group-hover:text-card-foreground/70 text-sm leading-relaxed transition-colors duration-500 max-w-[55%] group-hover:max-w-[50%]">
+            {product.description}
+          </p>
         </div>
+        <Link
+          to={product.link}
+          className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all"
+        >
+          Read More
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
     </motion.div>
   );
