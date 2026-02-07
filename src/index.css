@@ -131,6 +131,11 @@
 }
 
 @layer utilities {
+  /* Hide default cursor globally */
+  * {
+    cursor: none !important;
+  }
+
   /* Text stroke utility for outlined text */
   .text-stroke {
     -webkit-text-stroke: 2px currentColor;
@@ -140,6 +145,50 @@
   .text-stroke-white {
     -webkit-text-stroke: 2px white;
     -webkit-text-fill-color: transparent;
+  }
+
+  /* Wave animation for button hover */
+  @keyframes waveReveal {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .btn-wave-hover {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+  }
+
+  .btn-wave-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-wave-hover:hover::before {
+    opacity: 1;
+    animation: waveReveal 0.8s ease-out forwards;
+  }
+
+  .btn-wave-hover:hover {
+    color: hsl(var(--foreground));
+    background-color: white;
   }
 
   /* Industrial gradient backgrounds */
