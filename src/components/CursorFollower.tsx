@@ -1,19 +1,22 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 const CursorFollower = () => {
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const cursorRef = useRef<HTMLDivElement>(null);
 
   // Use motion values for smooth interpolation
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
-  // Spring animation for smooth following
-  const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Spring animation for smooth following - different configs for dot and ring
+  const dotSpringConfig = { damping: 30, stiffness: 400, mass: 0.5 };
+  const ringSpringConfig = { damping: 20, stiffness: 150, mass: 0.8 };
+  
+  const dotXSpring = useSpring(cursorX, dotSpringConfig);
+  const dotYSpring = useSpring(cursorY, dotSpringConfig);
+  const ringXSpring = useSpring(cursorX, ringSpringConfig);
+  const ringYSpring = useSpring(cursorY, ringSpringConfig);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -60,16 +63,15 @@ const CursorFollower = () => {
 
   return (
     <>
-      {/* Main cursor dot */}
+      {/* Main cursor dot - Orange filled circle */}
       <motion.div
-        ref={cursorRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 pointer-events-none z-[9999]"
         style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
+          x: dotXSpring,
+          y: dotYSpring,
         }}
         animate={{
-          scale: isHoveringButton ? 2.5 : 1,
+          scale: isHoveringButton ? 1.5 : 1,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{
@@ -78,26 +80,23 @@ const CursorFollower = () => {
         }}
       >
         <div 
-          className="w-4 h-4 -ml-2 -mt-2 rounded-full bg-white"
-          style={{
-            boxShadow: isHoveringButton ? "0 0 20px rgba(255,255,255,0.5)" : "none",
-          }}
+          className="w-3 h-3 -ml-1.5 -mt-1.5 rounded-full bg-primary"
         />
       </motion.div>
 
-      {/* Outer ring */}
+      {/* Outer ring - Orange stroke circle */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998]"
         style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
+          x: ringXSpring,
+          y: ringYSpring,
         }}
         animate={{
           scale: isHoveringButton ? 1.5 : 1,
-          opacity: isVisible ? (isHoveringButton ? 0 : 0.5) : 0,
+          opacity: isVisible ? 1 : 0,
         }}
         transition={{
-          scale: { type: "spring", damping: 20, stiffness: 200 },
+          scale: { type: "spring", damping: 15, stiffness: 200 },
           opacity: { duration: 0.3 },
         }}
       >

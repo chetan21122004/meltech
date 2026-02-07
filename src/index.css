@@ -131,14 +131,14 @@
 }
 
 @layer utilities {
-  /* Hide default cursor globally */
-  * {
-    cursor: none !important;
-  }
-
   /* Text stroke utility for outlined text */
   .text-stroke {
     -webkit-text-stroke: 2px currentColor;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-stroke-white {
+    -webkit-text-stroke: 2px white;
     -webkit-text-fill-color: transparent;
   }
 
