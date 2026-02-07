@@ -15,12 +15,14 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import ContactPage from "./pages/ContactPage";
 import LiveBrochurePage from "./pages/LiveBrochurePage";
 import NotFound from "./pages/NotFound";
+import CursorFollower from "./components/CursorFollower";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <CursorFollower />
       <Toaster />
       <Sonner />
       <BrowserRouter>
