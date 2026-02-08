@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo.png";
-
+import logo from "@/assets/logo-2.png";  
 const navLinks = [{
   name: "Home",
   href: "/"
@@ -39,7 +38,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img alt="Meltech" className="h-14 w-auto" src="https://krina.in/clients/meltech-04/assets/images/logo-2.png" />
+            <img alt="Meltech" className="h-14 w-auto" src={logo} />
           </Link>
 
           {/* Desktop Navigation */}

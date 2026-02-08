@@ -182,11 +182,6 @@ const Process = () => {
                       {step.fullTitle}
                     </h3>
 
-                    {/* Orange Dot */}
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-                    </div>
-
                     {/* CTA Button */}
                     <div className="flex items-center gap-3 pt-4">
                       <a
@@ -198,9 +193,6 @@ const Process = () => {
                           <ArrowUpRight className="w-4 h-4 text-card-foreground" />
                         </span>
                       </a>
-                      <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-primary" />
-                      </div>
                     </div>
                   </div>
                 </motion.div>

@@ -73,15 +73,6 @@ const ProductCard = ({
           className="w-full h-full object-cover"
         />
 
-        {/* Orange Dot Indicator - positioned outside the info card */}
-        <div 
-          className={`absolute top-1/2 ${
-            isRight ? "right-[420px] md:right-[460px]" : "left-[420px] md:left-[460px]"
-          } z-10`}
-        >
-          <div className="w-4 h-4 rounded-full bg-primary border-[3px] border-primary/30" />
-        </div>
-
         {/* Info Card Overlay */}
         <div 
           className={`absolute top-1/2 -translate-y-1/2 ${

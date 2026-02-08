@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-2.png";
 
 const Footer = () => {
   return (

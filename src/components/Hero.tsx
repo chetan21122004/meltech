@@ -22,9 +22,6 @@ const Hero = () => {
       }} transition={{
         duration: 0.6
       }} className="flex flex-col items-center">
-          {/* Orange dot indicator */}
-          <div className="w-3 h-3 rounded-full bg-primary mb-4" />
-          
           {/* Badge */}
           <span className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-full font-semibold text-sm mb-8">
             Engineered For Performance
@@ -88,7 +85,6 @@ const Hero = () => {
         duration: 0.6,
         delay: 0.8
       }} className="flex items-center justify-center gap-2 mt-16">
-          <div className="w-8 h-1 rounded-full bg-card-foreground" />
           <div className="w-8 h-1 rounded-full bg-card-foreground/30" />
         </motion.div>
       </div>

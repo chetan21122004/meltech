@@ -22,11 +22,6 @@ const ContactPage = () => {
         
         <div className="container relative z-10">
           <div className="max-w-4xl">
-            {/* Decorative Icon */}
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-              <div className="w-3 h-3 rounded-full bg-primary" />
-            </div>
-            
             <h1 className="text-5xl md:text-6xl font-bold text-card-foreground mb-6">
               Contact Us
             </h1>
@@ -50,8 +45,8 @@ const ContactPage = () => {
       <section className="py-24 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Form */}
-            <div>
+            {/* Form - Light theme */}
+            <div className="bg-white rounded-4xl p-8 shadow-xl border border-border/50">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-8 h-[2px] bg-primary" />
                 <span className="text-primary font-medium text-sm">KEEP IN TOUCH</span>
@@ -65,35 +60,35 @@ const ContactPage = () => {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className="w-full px-6 py-4 bg-secondary rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className="w-full px-6 py-4 bg-secondary rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                   />
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-6 py-4 bg-secondary rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                   />
                   <input
                     type="text"
                     placeholder="Service / Inquiry"
-                    className="w-full px-6 py-4 bg-secondary rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                   />
                 </div>
                 <textarea
                   placeholder="Your Message"
                   rows={5}
-                  className="w-full px-6 py-4 bg-secondary rounded-3xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  className="w-full px-6 py-4 bg-muted rounded-3xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none border border-transparent focus:border-primary/30"
                 />
                 <Button variant="industrial" size="lg" className="gap-2 pr-2">
                   SUBMIT NOW
-                  <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
-                    <ArrowUpRight className="w-4 h-4 text-card-foreground" />
+                  <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <ArrowUpRight className="w-4 h-4 text-primary" />
                   </span>
                 </Button>
               </form>
@@ -136,10 +131,22 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Map Placeholder */}
+      {/* Map - Jamnagar, Gujarat */}
       <section className="py-16">
         <div className="container">
-          <div className="w-full h-80 bg-secondary rounded-3xl" />
+          <div className="w-full rounded-3xl overflow-hidden shadow-xl border border-border/50">
+            <iframe
+              title="Meltech Location - Jamnagar, Gujarat"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6067.9637298981015!2d70.057158!3d22.471743!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3957154934c04597%3A0xe8b7dd81a49b75ca!2sJamnagar%2C%20Gujarat!5e1!3m2!1sen!2sin!4v1770451800603!5m2!1sen!2sin"
+              className="w-full h-[450px] border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            GIDC Industrial Estate, Jamnagar, Gujarat
+          </p>
         </div>
       </section>
 

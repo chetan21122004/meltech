@@ -75,30 +75,30 @@ const CTA = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-card rounded-4xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-card-foreground mb-6">Send us a Message</h3>
+            <div className="bg-white rounded-4xl p-8 shadow-xl border border-border/50 text-foreground">
+              <h3 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h3>
               <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full px-4 py-3 bg-secondary rounded-xl text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 bg-muted rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                   />
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="w-full px-4 py-3 bg-secondary rounded-xl text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 bg-muted rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                   />
                 </div>
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full px-4 py-3 bg-secondary rounded-xl text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 bg-muted rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
                 />
                 <textarea
                   rows={4}
                   placeholder="Your Message"
-                  className="w-full px-4 py-3 bg-secondary rounded-xl text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  className="w-full px-4 py-3 bg-muted rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none border border-transparent focus:border-primary/30"
                 />
                 <Button variant="industrial" size="lg" className="w-full gap-2">
                   Send Message
