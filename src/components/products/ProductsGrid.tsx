@@ -3,82 +3,103 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import img00 from "@/assets/products/00.png";
+import img01 from "@/assets/products/01.png";
+import img02 from "@/assets/products/02.png";
+import img03 from "@/assets/products/03.png";
+import img04 from "@/assets/products/04.png";
+import img05 from "@/assets/products/05.png";
+import img06 from "@/assets/products/06.png";
+import img07 from "@/assets/products/07.png";
+import img08 from "@/assets/products/08.png";
+import img09 from "@/assets/products/09.png";
+import img10 from "@/assets/products/10.png";
+import img11 from "@/assets/products/11.png";
+import img12 from "@/assets/products/12.png";
+import img13 from "@/assets/products/13.png";
+import img14 from "@/assets/products/14.png";
+import img16 from "@/assets/products/16.png";
 
 const products = [
   {
     id: "brass-cpvc-upvc-inserts",
     title: "Brass C-PVC & U-PVC Inserts",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: img00,
   },
   {
     id: "micro-turning-components",
     title: "Micro Turning Components",
-    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80",
+    image: img01,
   },
   {
     id: "turning-components",
     title: "Turning Components",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: img02,
   },
   {
     id: "brass-cnc-parts",
     title: "Brass CNC Parts",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80",
+    image: img03,
   },
   {
     id: "stamping-components",
     title: "Stamping Components",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80",
+    image: img04,
   },
   {
     id: "brass-gas-parts",
     title: "Brass Gas Parts",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: img05,
   },
   {
     id: "sliding-head-components",
     title: "Sliding Head Components",
-    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80",
+    image: img06,
   },
   {
     id: "turn-mill-parts",
     title: "Turn-Mill Parts",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: img07,
   },
   {
     id: "brass-electrical-parts",
     title: "Brass Electrical Parts",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80",
+    image: img08,
   },
   {
     id: "hydraulic-pneumatic-parts",
     title: "Hydraulic & Pneumatic Parts",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80",
+    image: img09,
   },
   {
     id: "auto-gas-parts",
     title: "Auto Gas Parts",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: img10,
   },
   {
     id: "brass-fasteners",
     title: "Brass Fasteners",
-    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80",
+    image: img11,
   },
   {
     id: "plastic-injection-moulding",
     title: "Plastic Injection Moulding",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: img12,
   },
   {
     id: "rubber-moulding",
     title: "Rubber Moulding",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80",
+    image: img13,
   },
   {
     id: "assembly-products",
     title: "Assembly Products",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80",
+    image: img14,
+  },
+  {
+    id: "new-product",
+    title: "New Product",
+    image: img16,
   },
 ];
 
@@ -136,7 +157,7 @@ const ProductsGrid = () => {
                   <h3 className="text-white font-bold text-lg leading-tight mb-4">
                     {product.title}
                   </h3>
-                  
+
                   {/* Explore Button - Hidden by default, shown on hover */}
                   <div className="flex items-center gap-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
                     <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-semibold text-sm uppercase tracking-wide">

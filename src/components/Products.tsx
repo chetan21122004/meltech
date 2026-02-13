@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, ArrowUpRight } from "lucide-react";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import product4 from "@/assets/product-4.jpg";
+import img00 from "@/assets/products/00.png"; // Inserts
+import img04 from "@/assets/products/04.png"; // Stamping
+import img06 from "@/assets/products/06.png"; // Sliding Head
+import img12 from "@/assets/products/12.png"; // Injection Moulding
 
 const products = [
   {
@@ -12,7 +12,7 @@ const products = [
     location: "Plumbing & Industrial",
     title: "Brass C-PVC, U-PVC Inserts",
     description: "High-Grip Threaded And Knurled Inserts For Leak-Proof, Long-Lasting Performance In Plastic Assemblies.",
-    image: product1,
+    image: img00,
     cardPosition: "left",
   },
   {
@@ -20,7 +20,7 @@ const products = [
     location: "Automotive & Electrical",
     title: "Stamping Components",
     description: "Accurate, High-Volume Stamped Parts For Consistent Quality In Demanding Assemblies.",
-    image: product2,
+    image: img04,
     cardPosition: "left",
   },
   {
@@ -28,7 +28,7 @@ const products = [
     location: "Electronics & Fluid Systems",
     title: "Sliding Head Components",
     description: "Ultra-Precise Sliding Head Machining For Micro And Complex Profile Parts.",
-    image: product3,
+    image: img06,
     cardPosition: "right",
   },
   {
@@ -36,16 +36,16 @@ const products = [
     location: "Consumer & Industrial",
     title: "Plastic Injection Moulding",
     description: "Custom-Engineered Injection Moulded Parts Built For Consistency, Precision, And Strength.",
-    image: product4,
+    image: img12,
     cardPosition: "right",
   },
 ];
 
-const ProductCard = ({ 
-  product, 
-  index 
-}: { 
-  product: typeof products[0]; 
+const ProductCard = ({
+  product,
+  index
+}: {
+  product: typeof products[0];
   index: number;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -63,7 +63,7 @@ const ProductCard = ({
     <motion.div
       ref={cardRef}
       style={{ scale, opacity }}
-      className="sticky top-20 h-[80vh] min-h-[600px] mb-6"
+      className="sticky top-16 md:top-20 h-[500px] md:h-[80vh] min-h-[500px] md:min-h-[600px] mb-6 md:mb-12"
     >
       <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl">
         {/* Background Image */}
@@ -73,18 +73,17 @@ const ProductCard = ({
           className="w-full h-full object-cover"
         />
 
-        {/* Info Card Overlay */}
-        <div 
-          className={`absolute top-1/2 -translate-y-1/2 ${
-            isRight ? "right-6 md:right-12" : "left-6 md:left-12"
-          }`}
+        {/* Info Card Overlay - Responsive positioning */}
+        <div
+          className={`absolute top-1/2 -translate-y-1/2 ${isRight ? "right-12" : "left-12"
+            } hidden md:block`}
         >
-          <div className="bg-white rounded-[1.5rem] p-8 md:p-10 w-[340px] md:w-[400px] shadow-xl relative">
+          <div className="bg-white rounded-[1.5rem] p-10 w-[400px] shadow-xl relative">
             {/* Category */}
             <h4 className="text-primary font-semibold text-base tracking-wide">
               {product.category}
             </h4>
-            
+
             {/* Location */}
             <div className="flex items-center gap-2 text-foreground/80 mt-2">
               <MapPin className="w-4 h-4 text-foreground/60" strokeWidth={1.5} />
@@ -92,7 +91,7 @@ const ProductCard = ({
             </div>
 
             {/* Title */}
-            <h3 className="text-[1.75rem] md:text-[2rem] font-bold text-foreground mt-6 leading-[1.2] tracking-tight">
+            <h3 className="text-[2rem] font-bold text-foreground mt-6 leading-[1.2] tracking-tight">
               {product.title}
             </h3>
 
@@ -103,11 +102,49 @@ const ProductCard = ({
 
             {/* Arrow Button - bottom right */}
             <div className="flex justify-end mt-6">
-              <a 
+              <a
                 href="#"
                 className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform duration-300 shadow-lg"
               >
                 <ArrowUpRight className="w-6 h-6" strokeWidth={2.5} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Info Overlay (Gradient + Text) */}
+        <div className="absolute inset-0 md:hidden">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+          <div className="absolute inset-0 p-6 flex flex-col justify-end">
+            <div className="mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/20 rounded-full mb-3">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-primary text-xs font-bold uppercase tracking-wider">
+                  {product.category}
+                </span>
+              </div>
+
+              <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
+                {product.title}
+              </h3>
+
+              <div className="flex items-center gap-2 text-white/70 mb-3 text-xs">
+                <MapPin className="w-3 h-3" />
+                <span>{product.location}</span>
+              </div>
+
+              <p className="text-white/80 text-sm leading-relaxed mb-4 line-clamp-3">
+                {product.description}
+              </p>
+
+              <a
+                href="#"
+                className="flex items-center justify-between w-full p-1 pl-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full group"
+              >
+                <span className="text-white font-medium text-sm">View Details</span>
+                <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center group-active:scale-95 transition-transform">
+                  <ArrowUpRight className="w-5 h-5 text-black" />
+                </span>
               </a>
             </div>
           </div>
@@ -150,12 +187,12 @@ const Products = () => {
           </motion.h2>
         </div>
 
-        {/* Sticky Stack Cards */}
+        {/* Sticky Stack Cards Container */}
         <div className="relative">
           {products.map((product, index) => (
-            <ProductCard 
-              key={product.title} 
-              product={product} 
+            <ProductCard
+              key={product.title}
+              product={product}
               index={index}
             />
           ))}

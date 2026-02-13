@@ -38,10 +38,10 @@ const WhyChooseUs = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-card overflow-hidden" ref={ref}>
+    <section className="relative py-24 md:py-32 lg:py-40 bg-card overflow-hidden" ref={ref}>
       {/* Decorative pattern bottom left */}
       <div className="absolute left-0 bottom-0 w-[438px] h-[597px] bg-[url('/pattern-3.png')] bg-no-repeat bg-contain opacity-10 pointer-events-none" />
-      
+
       <div className="container relative">
         {/* Header Row */}
         <div className="flex flex-wrap items-end justify-between gap-8 mb-16">
@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
               Why Choose<br />Meltech Melting Technology
             </h2>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -78,37 +78,37 @@ const WhyChooseUs = () => {
             </p>
           </motion.div>
         </div>
-        
+
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid md:grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start">
           {/* Images Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 relative"
+            className="lg:col-span-7 relative md:mb-24 lg:mb-0"
           >
             <div className="relative">
               {/* Main image */}
               <div className="rounded-[2rem] overflow-hidden">
-                <img 
-                  src={aboutBuilding} 
-                  alt="Manufacturing facility" 
-                  className="w-full h-[400px] object-cover"
+                <img
+                  src={aboutBuilding}
+                  alt="Manufacturing facility"
+                  className="w-full h-[300px] md:h-[500px] object-cover"
                 />
               </div>
-              
+
               {/* Overlapping second image */}
               <div className="absolute -bottom-16 left-12 w-64 h-48 rounded-[2rem] overflow-hidden border-8 border-card shadow-2xl animate-float">
-                <img 
-                  src={aboutComponents} 
-                  alt="Precision machining" 
+                <img
+                  src={aboutComponents}
+                  alt="Precision machining"
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
           </motion.div>
-          
+
           {/* Reasons Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -128,12 +128,12 @@ const WhyChooseUs = () => {
                 <div className="absolute left-0 top-1">
                   <reason.icon className="w-14 h-14 text-primary stroke-1" />
                 </div>
-                
+
                 {/* Number */}
                 <div className="absolute -right-4 top-0 text-8xl font-raleway font-extrabold text-stroke opacity-20">
                   {reason.number}
                 </div>
-                
+
                 {/* Content */}
                 <h4 className="text-xl font-bold text-card-foreground mb-3">
                   {reason.title}

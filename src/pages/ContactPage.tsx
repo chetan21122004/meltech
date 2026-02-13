@@ -9,30 +9,30 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center pt-32 pb-16">
         <div className="absolute inset-0 bg-card">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center opacity-30"
             style={{ backgroundImage: `url(${aboutImage})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-card via-card/80 to-transparent" />
         </div>
-        
+
         <div className="container relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-bold text-card-foreground mb-6">
               Contact Us
             </h1>
-            
+
             <div className="flex items-center gap-3 text-muted-foreground mb-8">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <span>-</span>
               <span className="text-primary">Contact</span>
             </div>
           </div>
-          
+
           <div className="absolute right-8 top-1/2 -translate-y-1/2 max-w-sm hidden lg:block">
             <p className="text-muted-foreground text-sm leading-relaxed">
               Connect with Meltech Melting Technology for inquiries, collaborations, or precision solutions. Our team is ready to support your CNC, stamping, molding, and assembly requirements worldwide.
@@ -54,7 +54,7 @@ const ContactPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
                 Get In Touch With Our Support Team
               </h2>
-              
+
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
@@ -102,7 +102,7 @@ const ContactPage = () => {
               <p className="text-muted-foreground mb-8">
                 Reach out to Meltech Melting Technology for inquiries, collaborations, or product information. Our team is available to provide timely assistance for your requirements.
               </p>
-              
+
               <div className="space-y-8">
                 <div>
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
@@ -110,19 +110,19 @@ const ContactPage = () => {
                   </div>
                   <h4 className="font-bold text-foreground mb-2">Location</h4>
                   <p className="text-muted-foreground">
-                    Meltech Melting Technology Pvt. Ltd.<br />
-                    GIDC Industrial Estate, Jamnagar, Gujarat, India
+                    Meltech Melting Technology<br />
+                    GIDC Phase 3 Dared, Jamnagar - 361006, Gujarat, India
                   </p>
                 </div>
-                
+
                 <div>
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-bold text-foreground mb-2">Contact</h4>
                   <p className="text-muted-foreground">
-                    +91 98765 43210, +91 98765 43211<br />
-                    info@meltech.co.in, sales@meltech.co.in
+                    +91 83205 18221<br />
+                    info@meltechmeltingtechnology.in, sales@meltechmeltingtechnology.in
                   </p>
                 </div>
               </div>

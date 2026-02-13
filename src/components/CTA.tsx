@@ -8,17 +8,17 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 98981 23456", "+91 12345 67890"],
+    details: ["+91 83205 18221"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@meltech.com", "sales@meltech.com"],
+    details: ["info@meltechmeltingtechnology.in", "sales@meltechmeltingtechnology.in"],
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["123 Industrial Area, GIDC", "Rajkot, Gujarat 360004"],
+    details: ["GIDC Phase 3 Dared, Jamnagar - 361006", "Gujarat, India"],
   },
   {
     icon: Clock,
@@ -48,7 +48,7 @@ const CTA = () => {
               Let's Build Your<br />Next Project
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md">
-              Have a project in mind? Contact us today for a free consultation 
+              Have a project in mind? Contact us today for a free consultation
               and quote. Our team is ready to bring your vision to life.
             </p>
 

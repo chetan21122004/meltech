@@ -18,7 +18,7 @@ const AboutIntro = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden" ref={ref}>
+    <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden" ref={ref}>
       {/* Large "ABOUT" vertical text on left edge */}
       <div className="absolute left-2 top-20 hidden lg:block pointer-events-none select-none">
         <span
@@ -39,7 +39,7 @@ const AboutIntro = () => {
         <div className="w-4 h-4 rounded-full border-2 border-primary" />
       </div>
 
-      <div className="container relative">
+      <div className="container relative md:px-12 lg:px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Content */}
           <motion.div
@@ -119,16 +119,12 @@ const AboutIntro = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground text-xs">Call Us 24/7</span>
-                  <span className="text-foreground font-bold text-lg">+91 98765 43210</span>
+                  <span className="text-foreground font-bold text-lg">+91 83205 18221</span>
                 </div>
               </div>
 
               {/* Dark pill indicator */}
-              <div className="hidden md:flex items-center gap-1 bg-foreground rounded-full px-4 py-2 ml-2">
-                {[...Array(10)].map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-background/50" />
-                ))}
-              </div>
+
             </div>
           </motion.div>
 
@@ -137,10 +133,10 @@ const AboutIntro = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:min-h-[700px]"
+            className="relative min-h-[400px] md:min-h-[600px] lg:min-h-[700px] mt-12 lg:mt-0"
           >
             {/* Main large image - robot arm / factory */}
-            <div className="relative w-[75%] h-[500px] rounded-[2rem] overflow-hidden">
+            <div className="relative w-full md:w-[75%] h-[350px] md:h-[500px] rounded-[2rem] overflow-hidden">
               <img
                 src={aboutBuilding}
                 alt="Manufacturing facility with robotic arm"
@@ -149,7 +145,7 @@ const AboutIntro = () => {
             </div>
 
             {/* Top right circular image - sparks / CNC */}
-            <div className="absolute -right-4 -top-4 w-48 h-48 rounded-full border-4 border-background overflow-hidden shadow-2xl z-10">
+            <div className="absolute right-0 top-0 md:-right-4 md:-top-4 w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-background overflow-hidden shadow-2xl z-10">
               <img
                 src={aboutComponents}
                 alt="CNC precision machining"
@@ -158,7 +154,7 @@ const AboutIntro = () => {
             </div>
 
             {/* Bottom right large circular image - brass components */}
-            <div className="absolute right-0 bottom-20 w-64 h-64 rounded-full border-4 border-background overflow-hidden shadow-2xl z-10">
+            <div className="absolute right-4 -bottom-12 md:right-0 md:bottom-20 w-40 h-40 md:w-64 md:h-64 rounded-full border-4 border-background overflow-hidden shadow-2xl z-10">
               <img
                 src={aboutImage}
                 alt="Precision brass components"
@@ -176,7 +172,7 @@ const AboutIntro = () => {
             </div>
 
             {/* Gold medal badge - bottom right */}
-            <div className="absolute right-8 bottom-0 z-20 flex items-center gap-3">
+            <div className="absolute left-0 bottom-0 md:right-8 md:bottom-0 md:left-auto z-20 flex items-center gap-3 bg-background/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-2 md:p-0 rounded-xl">
               <div className="relative">
                 <Award className="w-14 h-14 text-primary fill-primary/80" />
                 <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] text-primary-foreground font-extrabold text-lg">1</span>

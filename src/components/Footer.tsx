@@ -11,30 +11,30 @@ const Footer = () => {
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-center gap-8 mx-8">
-              <span className="text-2xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
+              <span className="text-xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
                 Precision Engineering
               </span>
-              <span className="text-2xl md:text-4xl text-primary-foreground/50">★</span>
-              <span className="text-2xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
+              <span className="text-xl md:text-4xl text-primary-foreground/50">★</span>
+              <span className="text-xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
                 Custom Manufacturing
               </span>
-              <span className="text-2xl md:text-4xl text-primary-foreground/50">★</span>
-              <span className="text-2xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
+              <span className="text-xl md:text-4xl text-primary-foreground/50">★</span>
+              <span className="text-xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
                 Brass & Metal Parts
               </span>
-              <span className="text-2xl md:text-4xl text-primary-foreground/50">★</span>
-              <span className="text-2xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
+              <span className="text-xl md:text-4xl text-primary-foreground/50">★</span>
+              <span className="text-xl md:text-4xl font-raleway font-bold uppercase text-primary-foreground">
                 Stamping & Moulding
               </span>
-              <span className="text-2xl md:text-4xl text-primary-foreground/50">★</span>
+              <span className="text-xl md:text-4xl text-primary-foreground/50">★</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Main Footer Content */}
-      <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
           <div>
             <img src={logo} alt="Meltech" className="h-12 w-auto mb-6" />
@@ -139,9 +139,7 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm">
             Copyright © 2025 - All Rights Reserved By Meltech Melting Technology
           </p>
-          <p className="text-muted-foreground text-sm">
-            Crafted by Krina Web®
-          </p>
+
         </div>
       </div>
     </footer>

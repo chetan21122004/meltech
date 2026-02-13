@@ -2,34 +2,34 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, ArrowRight } from "lucide-react";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import process2 from "@/assets/process-2.jpg";
+import img00 from "@/assets/products/00.png";
+import img03 from "@/assets/products/03.png";
+import img04 from "@/assets/products/04.png";
+import img12 from "@/assets/products/12.png";
 
 const performanceItems = [
   {
     title: "Brass C-PVC, U-PVC Inserts",
     category: "Brass Components",
-    image: product1,
+    image: img00,
     size: "large",
   },
   {
     title: "Stamping Components",
     category: "Sheet Metal",
-    image: product2,
+    image: img04,
     size: "small",
   },
   {
     title: "CNC Machined Parts",
     category: "Precision Parts",
-    image: process2,
+    image: img03,
     size: "small",
   },
   {
     title: "Plastic Injection Moulding",
     category: "Moulded Solutions",
-    image: product3,
+    image: img12,
     size: "large",
   },
 ];
@@ -66,8 +66,8 @@ const Performance = () => {
             className="group"
           >
             <div className="relative h-96 rounded-3xl overflow-hidden">
-              <img 
-                src={product1} 
+              <img
+                src={img00}
                 alt="Brass Components"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -93,19 +93,20 @@ const Performance = () => {
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="group"
             >
-              <div className="flex bg-muted rounded-3xl overflow-hidden h-48">
-                <div className="w-1/2 relative overflow-hidden">
-                  <img 
-                    src={product2} 
+              <div className="flex flex-col sm:flex-row bg-muted rounded-3xl overflow-hidden h-auto sm:h-48">
+                <div className="w-full sm:w-1/2 relative overflow-hidden h-48 sm:h-auto">
+                  <img
+                    src={img04}
                     alt="Stamping Components"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <div className="w-1/2 p-6 flex flex-col justify-center">
+                <div className="w-full sm:w-1/2 p-6 flex flex-col justify-center">
                   <span className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
                     Sheet Metal
                   </span>
@@ -119,19 +120,20 @@ const Performance = () => {
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="group"
             >
-              <div className="flex bg-muted rounded-3xl overflow-hidden h-48">
-                <div className="w-1/2 relative overflow-hidden">
-                  <img 
-                    src={process2} 
+              <div className="flex flex-col sm:flex-row bg-muted rounded-3xl overflow-hidden h-auto sm:h-48">
+                <div className="w-full sm:w-1/2 relative overflow-hidden h-48 sm:h-auto">
+                  <img
+                    src={img03}
                     alt="CNC Machined Parts"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <div className="w-1/2 p-6 flex flex-col justify-center">
+                <div className="w-full sm:w-1/2 p-6 flex flex-col justify-center">
                   <span className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
                     Precision Parts
                   </span>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MapPin, ArrowUpRight } from "lucide-react";
 import process1 from "@/assets/process-1.jpg";
 import process2 from "@/assets/process-2.jpg";
@@ -62,8 +62,44 @@ const steps = [
 
 const Process = () => {
   const ref = useRef(null);
+  const mobileContainerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeStep, setActiveStep] = useState(0);
+
+  // Auto-scroll logic for mobile
+  useEffect(() => {
+    const container = mobileContainerRef.current;
+    if (!container) return;
+
+    const interval = setInterval(() => {
+      const cardWidth = container.offsetWidth * 0.85; // 85vw
+      const gap = 16; // 1rem
+      const nextStep = (activeStep + 1) % steps.length;
+
+      container.scrollTo({
+        left: nextStep * (cardWidth + gap),
+        behavior: 'smooth'
+      });
+      setActiveStep(nextStep);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [activeStep]);
+
+  // Update active step on manual scroll
+  const handleScroll = () => {
+    const container = mobileContainerRef.current;
+    if (!container) return;
+
+    const cardWidth = container.offsetWidth * 0.85;
+    const scrollPosition = container.scrollLeft;
+    const newActiveStep = Math.round(scrollPosition / cardWidth);
+
+    if (newActiveStep !== activeStep && newActiveStep >= 0 && newActiveStep < steps.length) {
+      setActiveStep(newActiveStep);
+    }
+  };
 
   return (
     <section id="process" className="py-24 bg-card" ref={ref}>
@@ -88,28 +124,74 @@ const Process = () => {
           </h2>
         </motion.div>
 
-        {/* Process Cards Container */}
-        <div className="flex gap-4 h-[500px] overflow-hidden">
+        {/* Mobile View: Horizontal Snap Carousel */}
+        <div
+          ref={mobileContainerRef}
+          onScroll={handleScroll}
+          className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 scrollbar-hide"
+        >
+          {steps.map((step) => (
+            <div
+              key={step.step}
+              className="relative flex-none w-[85vw] h-[450px] rounded-3xl overflow-hidden snap-center"
+            >
+              {/* Image */}
+              <img
+                src={step.image}
+                alt={step.fullTitle}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+              {/* Content */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white font-bold text-sm border border-white/20">
+                      {step.step}
+                    </span>
+                    <div className="px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-medium uppercase tracking-wider">
+                      {step.category}
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-3 leading-tight">
+                    {step.fullTitle}
+                  </h3>
+
+                  <p className="text-white/80 text-sm leading-relaxed line-clamp-3">
+                    {step.description}
+                  </p>
+                </div>
+
+                <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                  <div className="h-full bg-primary w-1/3" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop View: Interactive Accordion */}
+        <div className="hidden md:flex gap-4 h-[500px]">
           {steps.map((step, index) => {
             const isHovered = hoveredIndex === index;
-            
+
             return (
               <motion.div
                 key={step.step}
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ 
-                  opacity: isInView ? 1 : 0, 
-                  y: isInView ? 0 : 50,
-                  flex: isHovered ? 3 : 1,
-                  minWidth: isHovered ? "350px" : "120px",
-                }}
-                transition={{ 
-                  duration: 0.6, 
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
                   delay: index * 0.1,
-                  flex: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
-                  minWidth: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
+                  ease: [0.4, 0, 0.2, 1]
                 }}
-                className="relative h-full rounded-3xl overflow-hidden cursor-pointer"
+                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isHovered ? "flex-[3]" : "flex-[1]"
+                  }`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -117,93 +199,78 @@ const Process = () => {
                 <img
                   src={step.image}
                   alt={step.fullTitle}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out scale-100 hover:scale-110"
                 />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
 
-                {/* Collapsed State - Vertical Text */}
-                <motion.div
-                  className="absolute inset-0 flex flex-col items-center justify-end pb-8"
-                  animate={{ opacity: isHovered ? 0 : 1 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                  <div className="flex flex-col items-center gap-4">
-                    <span
-                      className="text-2xl font-bold text-card-foreground whitespace-pre-line text-center"
-                      style={{
-                        writingMode: "vertical-rl",
-                        textOrientation: "mixed",
-                        transform: "rotate(180deg)",
-                      }}
-                    >
-                      {step.title}
+                {/* Desktop Overlay */}
+                <div className={`absolute inset-0 transition-colors duration-500 ${isHovered ? "bg-black/40" : "bg-black/60"}`} />
+
+                {/* Content Container */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                  {/* Top Label */}
+                  <div className={`flex flex-col justify-start gap-4 transition-all duration-300`}>
+                    <span className="text-3xl font-bold text-white/90">
+                      {step.step}
                     </span>
-                    <span
-                      className="text-xs text-muted-foreground italic"
-                      style={{
-                        writingMode: "vertical-rl",
-                        textOrientation: "mixed",
-                        transform: "rotate(180deg)",
-                      }}
-                    >
-                      {step.category}
-                    </span>
+
+                    {/* Collapsed Text (Vertical) */}
+                    <div className="transition-opacity duration-300" style={{ opacity: isHovered ? 0 : 1 }}>
+                      <span
+                        className="text-xl font-bold text-white/90 whitespace-nowrap absolute left-8 bottom-8 origin-bottom-left -rotate-90 translate-x-full"
+                      >
+                        {step.title.replace("\n", " ")}
+                      </span>
+                    </div>
                   </div>
-                </motion.div>
 
-                {/* Expanded State - Full Content */}
-                <motion.div
-                  className="absolute inset-0 flex flex-col justify-end p-8"
-                  animate={{ opacity: isHovered ? 1 : 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut", delay: isHovered ? 0.15 : 0 }}
-                >
-                  <div className="space-y-4">
-                    {/* Step Number */}
-                    <span className="text-sm text-muted-foreground">
-                      Step {step.step}
-                    </span>
-
-                    {/* Category with Icon */}
+                  {/* Expanded Content */}
+                  <div className={`flex flex-col gap-4 transition-all duration-500 delay-100 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 absolute bottom-0 left-0 right-0 p-8 pointer-events-none"}`}>
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-card-foreground" />
-                      <span className="text-card-foreground">{step.category}</span>
+                      <MapPin className="w-4 h-4 text-primary" />
+                      <span className="text-primary font-medium tracking-wide text-base">{step.category}</span>
                     </div>
 
-                    {/* Divider Line */}
-                    <div className="flex items-center gap-2">
-                      <div className="flex-1 h-px bg-muted-foreground/30" />
-                      <div className="w-2 h-2 rounded-full bg-muted-foreground" />
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-3xl font-bold text-card-foreground">
+                    <h3 className="text-3xl font-bold text-white leading-tight">
                       {step.fullTitle}
                     </h3>
 
-                    {/* CTA Button */}
-                    <div className="flex items-center gap-3 pt-4">
-                      <a
-                        href="#"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
-                      >
-                        Learn More
-                        <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
-                          <ArrowUpRight className="w-4 h-4 text-card-foreground" />
-                        </span>
-                      </a>
+                    <p className="text-white/80 text-base leading-relaxed max-w-[90%]">
+                      {step.description}
+                    </p>
+
+                    <div className="pt-2">
+                      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-colors">
+                        <ArrowUpRight className="w-5 h-5" />
+                      </span>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Bottom Pagination Indicator */}
-        <div className="flex justify-center mt-8">
-          <div className="w-16 h-1 bg-muted-foreground/30 rounded-full" />
+        {/* Mobile Progress Indicator */}
+        <div className="md:hidden flex justify-center mt-4 gap-2">
+          {steps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                const container = mobileContainerRef.current;
+                if (!container) return;
+                const cardWidth = container.offsetWidth * 0.85;
+                const gap = 16;
+                container.scrollTo({
+                  left: index * (cardWidth + gap),
+                  behavior: 'smooth'
+                });
+                setActiveStep(index);
+              }}
+              className={`h-1.5 rounded-full transition-all duration-300 ${index === activeStep ? "w-8 bg-primary" : "w-1.5 bg-muted-foreground/30"
+                }`}
+              aria-label={`Go to step ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

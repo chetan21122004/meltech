@@ -62,7 +62,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
               {/* Components image - left of text block */}
               <div className="flex-shrink-0 w-full sm:w-[52%] lg:min-w-0">
-                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] sm:aspect-[3/4] min-h-[320px]">
+                <div className="relative rounded-3xl overflow-hidden aspect-video sm:aspect-[3/4] min-h-[200px] sm:min-h-[320px]">
                   <img
                     src={aboutComponents}
                     alt="Precision components"
