@@ -175,7 +175,7 @@ const Process = () => {
         </div>
 
         {/* Desktop View: Interactive Accordion */}
-        <div className="hidden md:flex gap-4 h-[500px]">
+        <div className="hidden md:flex gap-4 h-[400px]">
           {steps.map((step, index) => {
             const isHovered = hoveredIndex === index;
 

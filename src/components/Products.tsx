@@ -1,45 +1,26 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, ArrowUpRight } from "lucide-react";
-import img00 from "@/assets/products/00.png"; // Inserts
-import img04 from "@/assets/products/04.png"; // Stamping
-import img06 from "@/assets/products/06.png"; // Sliding Head
-import img12 from "@/assets/products/12.png"; // Injection Moulding
+import { products as sourceProducts } from "@/data/products";
 
-const products = [
-  {
-    category: "Brass Components",
-    location: "Plumbing & Industrial",
-    title: "Brass C-PVC, U-PVC Inserts",
-    description: "High-Grip Threaded And Knurled Inserts For Leak-Proof, Long-Lasting Performance In Plastic Assemblies.",
-    image: img00,
-    cardPosition: "left",
-  },
-  {
-    category: "Sheet Metal Precision",
-    location: "Automotive & Electrical",
-    title: "Stamping Components",
-    description: "Accurate, High-Volume Stamped Parts For Consistent Quality In Demanding Assemblies.",
-    image: img04,
-    cardPosition: "left",
-  },
-  {
-    category: "Swiss Turning",
-    location: "Electronics & Fluid Systems",
-    title: "Sliding Head Components",
-    description: "Ultra-Precise Sliding Head Machining For Micro And Complex Profile Parts.",
-    image: img06,
-    cardPosition: "right",
-  },
-  {
-    category: "Moulded Solutions",
-    location: "Consumer & Industrial",
-    title: "Plastic Injection Moulding",
-    description: "Custom-Engineered Injection Moulded Parts Built For Consistency, Precision, And Strength.",
-    image: img12,
-    cardPosition: "right",
-  },
+const featuredIds = [
+  { id: "brass-cpvc-upvc-inserts", cardPosition: "left" },
+  { id: "stamping-components", cardPosition: "left" },
+  { id: "sliding-head-components", cardPosition: "right" },
+  { id: "plastic-injection-moulding", cardPosition: "right" },
 ];
+
+const products = featuredIds.map(item => {
+  const p = sourceProducts.find(sp => sp.id === item.id);
+  return {
+    ...item,
+    category: p?.category || "Components",
+    location: p?.location || "Industrial",
+    title: p?.title || "Product",
+    description: p?.shortDescription || "High-quality component",
+    image: p?.image || "",
+  };
+});
 
 const ProductCard = ({
   product,

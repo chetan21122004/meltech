@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-2.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
           <div>
-            <img src={logo} alt="Meltech" className="h-12 w-auto mb-6" />
+            <img src={logo} alt="Meltech" className="sm:h-24 h-20  w-auto" />
             <p className="text-muted-foreground mb-6">
               Meltech Melting Technology delivers precision-engineered parts through advanced machining, stamping, molding, and assembly—ensuring consistent quality and on-time delivery worldwide.
             </p>

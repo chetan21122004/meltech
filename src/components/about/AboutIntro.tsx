@@ -18,7 +18,7 @@ const AboutIntro = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden" ref={ref}>
+    <section className="relative  md:py-24 lg:py-32 overflow-hidden" ref={ref}>
       {/* Large "ABOUT" vertical text on left edge */}
       <div className="absolute left-2 top-20 hidden lg:block pointer-events-none select-none">
         <span
@@ -91,15 +91,25 @@ const AboutIntro = () => {
               <p className="text-foreground text-base leading-relaxed flex-1">
                 Our mission is simple—deliver uncompromising quality, speed, and scalability while building long-term partnerships based on trust.
               </p>
-              <div className="flex flex-col items-center flex-shrink-0">
-                <span className="text-primary font-bold text-sm tracking-wide">R. PATEL</span>
-                <span className="text-muted-foreground text-xs mb-2">CEO & Founder</span>
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-muted">
-                  <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face"
-                    alt="R. Patel - CEO & Founder"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="flex flex-col gap-6 flex-shrink-0">
+                <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-end">
+                    <span className="text-primary font-bold text-sm tracking-wide">HITESH PATEL</span>
+                    <span className="text-muted-foreground text-xs">FOUNDER</span>
+                  </div>
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-muted bg-muted">
+                    {/* Placeholder or generic avatar if no specific image provided */}
+                    <div className="w-full h-full bg-gray-200" />
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-end">
+                    <span className="text-primary font-bold text-sm tracking-wide">YASH PATEL</span>
+                    <span className="text-muted-foreground text-xs">CEO</span>
+                  </div>
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-muted bg-muted">
+                    <div className="w-full h-full bg-gray-200" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -120,6 +130,7 @@ const AboutIntro = () => {
                 <div className="flex flex-col">
                   <span className="text-muted-foreground text-xs">Call Us 24/7</span>
                   <span className="text-foreground font-bold text-lg">+91 83205 18221</span>
+                  <span className="text-muted-foreground text-xs">+91 84879 75290</span>
                 </div>
               </div>
 

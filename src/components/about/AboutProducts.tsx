@@ -4,114 +4,14 @@ import { useRef, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import img00 from "@/assets/products/00.png";
-import img01 from "@/assets/products/01.png";
-import img02 from "@/assets/products/02.png";
-import img03 from "@/assets/products/03.png";
-import img04 from "@/assets/products/04.png";
-import img05 from "@/assets/products/05.png";
-import img06 from "@/assets/products/06.png";
-import img07 from "@/assets/products/07.png";
-import img08 from "@/assets/products/08.png";
-import img09 from "@/assets/products/09.png";
-import img10 from "@/assets/products/10.png";
-import img11 from "@/assets/products/11.png";
-import img12 from "@/assets/products/12.png";
-import img13 from "@/assets/products/13.png";
-import img14 from "@/assets/products/14.png";
+import { products as sourceProducts } from "@/data/products";
 
-const products = [
-  {
-    title: "Brass C-PVC & U-PVC Inserts",
-    description: "Durable brass inserts for CPVC & UPVC fittings with knurled surfaces for perfect grip.",
-    link: "#",
-    image: img00,
-  },
-  {
-    title: "Micro Turning Components",
-    description: "High-precision micro turned parts designed for compact and intricate applications.",
-    link: "#",
-    image: img01,
-  },
-  {
-    title: "Turning Components",
-    description: "Precision-engineered turning parts meeting diverse industrial needs with accuracy.",
-    link: "#",
-    image: img02,
-  },
-  {
-    title: "Brass CNC Parts",
-    description: "CNC machined brass components for unmatched precision and consistent performance.",
-    link: "#",
-    image: img03,
-  },
-  {
-    title: "Stamping Components",
-    description: "Stamped precision parts and sheet cutting solutions with superior finish and strength.",
-    link: "#",
-    image: img04,
-  },
-  {
-    title: "Brass Gas Parts",
-    description: "Reliable and durable brass components designed for gas systems and fittings.",
-    link: "#",
-    image: img05,
-  },
-  {
-    title: "Sliding Head Components",
-    description: "Advanced sliding-head turned components for medical, automotive, and electronics.",
-    link: "#",
-    image: img06,
-  },
-  {
-    title: "Turn-Mill Parts",
-    description: "Complex parts made in one setup with CNC turn-mill for precision and consistency.",
-    link: "#",
-    image: img07,
-  },
-  {
-    title: "Brass Electrical Parts",
-    description: "Precision brass terminals, connectors, sockets, and more for electrical assemblies.",
-    link: "#",
-    image: img08,
-  },
-  {
-    title: "Hydraulic & Pneumatic Parts",
-    description: "High-pressure brass and metal components for hydraulic and pneumatic systems.",
-    link: "#",
-    image: img09,
-  },
-  {
-    title: "Auto Gas Parts",
-    description: "LPG and CNG components including valves, fittings, and regulators for automotive gas.",
-    link: "#",
-    image: img10,
-  },
-  {
-    title: "Brass Fasteners",
-    description: "Precision fasteners like screws, nuts, bolts, and studs for industrial use.",
-    link: "#",
-    image: img11,
-  },
-  {
-    title: "Plastic Injection Moulding",
-    description: "Custom plastic molded parts for electronics, appliances, and industrial components.",
-    link: "#",
-    image: img12,
-  },
-  {
-    title: "Rubber Moulding",
-    description: "High-quality rubber molded parts with excellent sealing and durability.",
-    link: "#",
-    image: img13,
-  },
-  {
-    title: "Assembly Products",
-    description: "Complete sub-assemblies combining metal, plastic, and rubber parts.",
-    link: "#",
-    image: img14,
-  },
-];
+const products = sourceProducts.map(p => ({
+  title: p.title,
+  description: p.shortDescription,
+  link: `/products/${p.id}`,
+  image: p.image,
+}));
 
 const MarqueeRow = ({ items, direction = "left", speed = 20, isPaused = false }: { items: typeof products; direction?: "left" | "right"; speed?: number; isPaused?: boolean }) => {
   return (
@@ -187,7 +87,7 @@ const AboutProducts = () => {
   };
 
   return (
-    <section className="relative py-24 bg-muted overflow-hidden" ref={ref}>
+    <section className="relative py-16 bg-muted overflow-hidden" ref={ref}>
       {/* Decorative pattern pattern-3.png */}
       <div className="absolute left-0 top-0 w-96 h-96 bg-[url('/pattern-3.png')] bg-no-repeat opacity-10 pointer-events-none" />
 
@@ -223,41 +123,6 @@ const AboutProducts = () => {
         <MarqueeRow items={row3} direction={rowDirections[2]} speed={18} />
       </div>
 
-      {/* Navigation Control + View All */}
-      <div className="container mt-12">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          {/* Fake Navigation Buttons (Visual Control) */}
-          <div className="flex items-center gap-4">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full w-12 h-12 bg-background hover:bg-primary hover:text-primary-foreground border-2 transition-all active:scale-95"
-              onClick={handlePrev}
-              aria-label="Scroll Left"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </Button>
-            <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider select-none">Control Direction</span>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full w-12 h-12 bg-background hover:bg-primary hover:text-primary-foreground border-2 transition-all active:scale-95"
-              onClick={handleNext}
-              aria-label="Scroll Right"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </Button>
-          </div>
-
-          <div className="w-px h-8 bg-border hidden md:block" />
-
-          <Link to="/products">
-            <Button variant="industrial" size="lg" className="gap-2 px-8">
-              VIEW FULL CATALOG <ArrowRight className="w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
-      </div>
     </section>
   );
 };

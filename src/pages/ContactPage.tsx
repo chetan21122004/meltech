@@ -122,6 +122,8 @@ const ContactPage = () => {
                   <h4 className="font-bold text-foreground mb-2">Contact</h4>
                   <p className="text-muted-foreground">
                     +91 83205 18221<br />
+                    +91 84879 75290<br />
+                    +91 89808 65290<br />
                     info@meltechmeltingtechnology.in, sales@meltechmeltingtechnology.in
                   </p>
                 </div>
