@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Award, TestTube, Settings, Users, Heart, CheckCircle } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const qualityFeatures = [
   {
@@ -42,8 +43,13 @@ const stats = [
 const QualityPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Quality Assurance - ISO 9001:2015 Certified Manufacturer"
+        description="Meltech Melting Technology ensures uncompromised quality through ISO 9001:2015 certification, 13+ quality checks, 99% first-pass yield, and 35 PPM defect rate. Precision testing and advanced infrastructure."
+        keywords="quality assurance, ISO 9001:2015, quality control brass components, precision testing, manufacturing quality standards, first-pass yield, PPM defect rate, quality certified manufacturer India"
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[50vh] bg-card overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0">

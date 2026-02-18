@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const industries = [
   {
@@ -69,8 +70,13 @@ const industries = [
 const IndustriesPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Industries We Serve - Automotive, Electrical, Gas & More"
+        description="Meltech Melting Technology serves automotive, electrical, gas & LPG, hydraulic, pneumatic, aerospace, defense, medical, marine, and renewable energy industries with precision CNC turned components."
+        keywords="automotive brass parts, electrical components manufacturer, gas fittings supplier, hydraulic parts, pneumatic components, aerospace components India, defense precision parts, medical device components, marine grade components"
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[50vh] bg-card overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0">
@@ -168,7 +174,7 @@ const IndustriesPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/40" />
                   </div>
                 )}
-                
+
                 <div className={`relative z-10 ${industry.image ? 'group-hover:text-white' : ''} transition-colors duration-300`}>
                   <h3 className="font-bold text-lg mb-3 text-foreground group-hover:text-primary transition-colors">
                     {industry.title}

@@ -43,14 +43,14 @@ const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="testimonials" className="py-24 bg-background relative overflow-hidden" ref={ref}>
+    <section id="testimonials" className="py-14 bg-background relative overflow-hidden" ref={ref}>
       {/* Decorative curved shape on the right */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[500px] pointer-events-none">
-        <div className="absolute inset-0 border-[40px] border-muted rounded-[200px] opacity-50" 
-          style={{ 
+        <div className="absolute inset-0 border-[40px] border-muted rounded-[200px] opacity-50"
+          style={{
             clipPath: "inset(0 0 0 50%)",
             borderColor: "hsl(var(--muted))"
-          }} 
+          }}
         />
       </div>
 
@@ -77,12 +77,12 @@ const Testimonials = () => {
             {/* Avatar stack */}
             <div className="flex -space-x-3">
               {avatars.map((avatar, i) => (
-                <div 
+                <div
                   key={i}
                   className="w-12 h-12 rounded-full border-2 border-background overflow-hidden"
                 >
-                  <img 
-                    src={avatar} 
+                  <img
+                    src={avatar}
                     alt={`Customer ${i + 1}`}
                     className="w-full h-full object-cover"
                   />
@@ -152,11 +152,10 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                  index === activeIndex
-                    ? "bg-primary border-4 border-primary/30 scale-125"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                }`}
+                className={`w-4 h-4 rounded-full transition-all duration-300 ${index === activeIndex
+                  ? "bg-primary border-4 border-primary/30 scale-125"
+                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
@@ -182,6 +181,7 @@ const Testimonials = () => {
             </div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );

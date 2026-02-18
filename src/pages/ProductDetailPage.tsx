@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Ruler, Layers, Sparkles } from "lucide-react";
 import { products } from "@/data/products";
+import SEO from "@/components/SEO";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -14,6 +15,11 @@ const ProductDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={product.seoTitle || `${product.title} - Precision Brass Components`}
+        description={product.seoDescription || product.shortDescription || product.fullDescription?.substring(0, 160)}
+        keywords={product.seoKeywords || `${product.title.toLowerCase()}, brass ${product.title.toLowerCase()}, precision turned parts, CNC machined parts, Meltech`}
+      />
       <Header />
 
       {/* Hero Section */}

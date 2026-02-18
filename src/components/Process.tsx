@@ -175,7 +175,7 @@ const Process = () => {
         </div>
 
         {/* Desktop View: Interactive Accordion */}
-        <div className="hidden md:flex gap-4 h-[400px]">
+        <div className="hidden md:flex gap-4 h-[400px] max-w-7xl mx-auto">
           {steps.map((step, index) => {
             const isHovered = hoveredIndex === index;
 
@@ -188,9 +188,9 @@ const Process = () => {
                 transition={{
                   duration: 0.6,
                   delay: index * 0.1,
-                  ease: [0.4, 0, 0.2, 1]
+                  ease: [0.25, 1, 0.5, 1]
                 }}
-                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isHovered ? "flex-[3]" : "flex-[1]"
+                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${isHovered ? "flex-[3]" : "flex-[1]"
                   }`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -199,24 +199,30 @@ const Process = () => {
                 <img
                   src={step.image}
                   alt={step.fullTitle}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out scale-100 hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-110 scale-100"
                 />
 
                 {/* Desktop Overlay */}
-                <div className={`absolute inset-0 transition-colors duration-500 ${isHovered ? "bg-black/40" : "bg-black/60"}`} />
+                <div
+                  className={`absolute inset-0 transition-colors duration-500 ease-in-out ${isHovered ? "bg-black/40" : "bg-black/60"
+                    }`}
+                />
 
                 {/* Content Container */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                <div className="absolute inset-0 p-6 flex flex-col justify-between overflow-hidden">
                   {/* Top Label */}
-                  <div className={`flex flex-col justify-start gap-4 transition-all duration-300`}>
-                    <span className="text-3xl font-bold text-white/90">
+                  <div className="flex flex-col justify-start gap-4">
+                    <span className="text-2xl font-bold text-white/90">
                       {step.step}
                     </span>
 
                     {/* Collapsed Text (Vertical) */}
-                    <div className="transition-opacity duration-300" style={{ opacity: isHovered ? 0 : 1 }}>
+                    <div
+                      className={`transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isHovered ? "opacity-0 -translate-x-4" : "opacity-100 translate-x-0"
+                        }`}
+                    >
                       <span
-                        className="text-xl font-bold text-white/90 whitespace-nowrap absolute left-8 bottom-8 origin-bottom-left -rotate-90 translate-x-full"
+                        className="text-2xl font-bold text-white/90 whitespace-nowrap absolute  bottom-3 origin-bottom-left rotate-90"
                       >
                         {step.title.replace("\n", " ")}
                       </span>
@@ -224,22 +230,27 @@ const Process = () => {
                   </div>
 
                   {/* Expanded Content */}
-                  <div className={`flex flex-col gap-4 transition-all duration-500 delay-100 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 absolute bottom-0 left-0 right-0 p-8 pointer-events-none"}`}>
+                  <div
+                    className={`flex flex-col gap-4 transition-all duration-500 delay-75 ease-[cubic-bezier(0.25,1,0.5,1)] ${isHovered
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8 absolute bottom-0 left-0 right-0 p-8 pointer-events-none"
+                      }`}
+                  >
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-primary" />
                       <span className="text-primary font-medium tracking-wide text-base">{step.category}</span>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white leading-tight">
+                    <h3 className="text-2xl font-bold text-white leading-tight whitespace-nowrap">
                       {step.fullTitle}
                     </h3>
 
-                    <p className="text-white/80 text-base leading-relaxed max-w-[90%]">
+                    <p className="text-white/80 text-sm leading-relaxed max-w-[95%] line-clamp-3">
                       {step.description}
                     </p>
 
                     <div className="pt-2">
-                      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-colors">
+                      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-colors duration-300">
                         <ArrowUpRight className="w-5 h-5" />
                       </span>
                     </div>

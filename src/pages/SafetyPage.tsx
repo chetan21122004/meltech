@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Shield, Settings, Users, FileCheck } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const safetyFeatures = [
   {
@@ -30,8 +31,13 @@ const safetyFeatures = [
 const SafetyPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Safety & Sustainability - EHS Standards"
+        description="Meltech Melting Technology embeds rigorous safety protocols, ISO-aligned EHS frameworks, LOTO procedures, and machine safety standards to protect people, processes, and performance in precision manufacturing."
+        keywords="manufacturing safety, EHS standards, workplace safety, machine safety, LOTO procedures, safety management system, ISO safety compliance, PPE, manufacturing sustainability"
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[50vh] bg-card overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0">

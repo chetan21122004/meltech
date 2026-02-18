@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, ArrowUpRight } from "lucide-react";
 import aboutImage from "@/assets/about-image.jpg";
+import SEO from "@/components/SEO";
 
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us - Get a Quote for Precision Components"
+        description="Contact Meltech Melting Technology for inquiries, quotes, and collaborations. Located at GIDC Phase 3 Dared, Jamnagar 361006, Gujarat, India. Call +91 83205 18221."
+        keywords="contact Meltech, brass components quote, CNC parts inquiry, Jamnagar manufacturer contact, precision components supplier India, get a quote brass parts"
+      />
       <Header />
 
       {/* Hero Section */}

@@ -79,12 +79,7 @@ const Header = () => {
               </span>
             </Button>
           </Link>
-          <button className="w-12 h-12 rounded-full bg-card flex items-center justify-center ml-2 hover:bg-card/90 transition-colors">
-            <div className="flex flex-col gap-1.5">
-              <span className="w-5 h-0.5 bg-card-foreground rounded-full" />
-              <span className="w-5 h-0.5 bg-card-foreground rounded-full" />
-            </div>
-          </button>
+
         </div>
 
         {/* Mobile Menu Button */}

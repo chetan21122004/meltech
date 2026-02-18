@@ -2,12 +2,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
 import aboutImage from "@/assets/about-image.jpg";
+import brochurePdf from "@/assets/meltech_bror.pdf";
+import SEO from "@/components/SEO";
 
 const LiveBrochurePage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Live Brochure - Download Our Product Catalog"
+        description="Download Meltech Melting Technology's live brochure showcasing precision-engineered CNC turned parts, brass fittings, stamping, molding, and assembly solutions."
+        keywords="Meltech brochure, product catalog, brass components brochure, CNC parts catalog, download brochure, manufacturing catalog"
+      />
       <Header />
 
       {/* Hero Section */}
@@ -22,10 +29,7 @@ const LiveBrochurePage = () => {
 
         <div className="container relative z-10">
           <div className="max-w-4xl">
-            {/* Decorative Icon */}
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-              <div className="w-3 h-3 rounded-full bg-primary" />
-            </div>
+
 
             <h1 className="text-5xl md:text-6xl font-bold text-card-foreground mb-6">
               Live Brochure
@@ -62,13 +66,20 @@ const LiveBrochurePage = () => {
               ></iframe>
             </div>
 
-            <div className="mt-12 text-center">
-              <Link to="/contact">
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <a href={brochurePdf} target="_blank" rel="noopener noreferrer">
                 <Button variant="industrial" size="lg" className="gap-2 pr-2">
-                  GET A QUOTE
+                  DOWNLOAD BROCHURE
                   <span className="w-10 h-10 rounded-full bg-card flex items-center justify-center">
-                    <ArrowUpRight className="w-4 h-4 text-card-foreground" />
+                    <Download className="w-4 h-4 text-card-foreground" />
                   </span>
+                </Button>
+              </a>
+
+              <Link to="/contact">
+                <Button variant="outline" size="lg" className="gap-2">
+                  GET A QUOTE
+                  <ArrowUpRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

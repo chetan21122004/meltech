@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 const Hero = () => {
@@ -68,12 +69,12 @@ const Hero = () => {
         duration: 0.8,
         delay: 0.6
       }} className="flex items-center justify-center gap-0">
-        <Button variant="outline" size="lg" className="rounded-full px-10 py-6 bg-card-foreground text-card border-none font-semibold text-base hover:bg-card-foreground/90">
-          Explore Products
-        </Button>
-        <button className="w-14 h-14 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors -ml-2">
-          <Play className="w-5 h-5 text-primary-foreground ml-1" fill="currentColor" />
-        </button>
+        <Link to="/products">
+          <Button variant="outline" size="lg" className="rounded-full px-10 py-6 bg-card-foreground text-card border-none font-semibold text-base hover:bg-card-foreground/90">
+            Explore Products
+          </Button>
+        </Link>
+
       </motion.div>
 
       {/* Pagination dots */}

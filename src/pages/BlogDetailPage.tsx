@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import aboutImage from "@/assets/about-image.jpg";
 import process1 from "@/assets/process-1.jpg";
 import process2 from "@/assets/process-2.jpg";
+import SEO from "@/components/SEO";
 
 const blogs = [
   {
@@ -30,12 +31,12 @@ const blogs = [
           content: "Manufacturers are shifting towards recyclable alloys, energy-efficient machining, and waste-reduction practices. Green engineering is no longer optional—it's a global mandate."
         },
         {
-          title: "3. Human-Machine Collaboration",
-          content: "Skilled engineers working alongside advanced machines create faster, more precise, and cost-effective outcomes. This synergy is driving next-gen product innovation."
+          title: "3. Micro-Machining & Multi-Axis CNC",
+          content: "The demand for micro-components in electronics and medical devices is driving investments in 5-axis and Swiss-type CNC machines capable of sub-micron precision."
         }
       ],
       quote: {
-        text: "The future of precision lies in data-driven engineering and adaptive automation.",
+        text: "The future of manufacturing lies in precision, speed, and sustainability—those who evolve will lead.",
         author: "Industry Expert"
       }
     }
@@ -44,33 +45,33 @@ const blogs = [
     id: "sustainability-modern-manufacturing",
     title: "Sustainability In Modern Manufacturing",
     category: "Sustainability",
-    heroDescription: "Exploring how modern manufacturers are embracing sustainable practices to reduce environmental impact while maintaining quality.",
+    heroDescription: "How modern manufacturers are integrating sustainable practices in their operations while maintaining precision.",
     image: process1,
     content: {
-      intro: "Sustainability is no longer a buzzword—it's a business imperative. Modern manufacturing facilities are implementing green initiatives across every stage of production.",
+      intro: "Sustainability is no longer a buzzword—it's a business imperative. Modern manufacturers are finding innovative ways to reduce waste, conserve energy, and minimize environmental impact.",
       bulletPoints: [
-        "Energy-efficient machinery and processes",
-        "Waste reduction and recycling programs",
-        "Sustainable material sourcing"
+        "Energy-efficient machining processes",
+        "Recyclable material selection",
+        "Waste reduction and circular economy"
       ],
-      body: "From solar-powered facilities to closed-loop water systems, manufacturers are finding innovative ways to reduce their carbon footprint without compromising on quality or efficiency.",
+      body: "From selecting eco-friendly raw materials to implementing energy-efficient CNC processes, the manufacturing industry is undergoing a green transformation.",
       sections: [
         {
           title: "1. Green Manufacturing Practices",
-          content: "Implementing ISO 14001 environmental management systems helps organizations systematically improve their environmental performance."
+          content: "Companies are adopting lean manufacturing principles to minimize waste while maximizing output quality and efficiency."
         },
         {
-          title: "2. Circular Economy Integration",
-          content: "Moving from a linear to circular model means designing products for longevity, repairability, and eventual recycling."
+          title: "2. Energy Management",
+          content: "Smart energy monitoring systems help track and optimize power consumption across production lines."
         },
         {
-          title: "3. Supply Chain Sustainability",
-          content: "Working with suppliers who share sustainability goals creates a comprehensive approach to environmental responsibility."
+          title: "3. Circular Economy Approach",
+          content: "Designing products for recyclability and implementing material recovery programs are becoming standard practices."
         }
       ],
       quote: {
-        text: "Sustainability is not just good for the planet—it's good for business.",
-        author: "Manufacturing Leader"
+        text: "Sustainable manufacturing isn't just good for the planet—it's good for business.",
+        author: "Sustainability Director"
       }
     }
   },
@@ -103,7 +104,7 @@ const blogs = [
         }
       ],
       quote: {
-        text: "Quality knows no borders—our components serve industries worldwide.",
+        text: "Precision manufacturing is the backbone of innovation across every industry.",
         author: "Global Operations Director"
       }
     }
@@ -116,31 +117,36 @@ const BlogDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${blog.title} - Blog`}
+        description={blog.heroDescription}
+        keywords={`${blog.category.toLowerCase()}, precision manufacturing blog, ${blog.title.toLowerCase()}, CNC machining, brass components`}
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center pt-32 pb-16">
         <div className="absolute inset-0 bg-card">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center opacity-30"
             style={{ backgroundImage: `url(${blog.image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-card via-card/80 to-transparent" />
         </div>
-        
+
         <div className="container relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold text-card-foreground mb-6">
               {blog.title}
             </h1>
-            
+
             <div className="flex items-center gap-3 text-muted-foreground mb-8">
               <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
               <span>-</span>
               <span className="text-primary">{blog.title}</span>
             </div>
           </div>
-          
+
           <div className="absolute right-8 top-1/2 -translate-y-1/2 max-w-sm hidden lg:block">
             <p className="text-muted-foreground text-sm leading-relaxed">
               {blog.heroDescription}
@@ -157,8 +163,8 @@ const BlogDetailPage = () => {
             <div className="lg:col-span-2">
               {/* Featured Image */}
               <div className="rounded-3xl overflow-hidden mb-8">
-                <img 
-                  src={blog.image} 
+                <img
+                  src={blog.image}
                   alt={blog.title}
                   className="w-full h-80 object-cover"
                 />
@@ -211,13 +217,13 @@ const BlogDetailPage = () => {
               <h4 className="text-lg font-bold text-foreground mb-6">All Posts</h4>
               <div className="space-y-4">
                 {blogs.map((item) => (
-                  <Link 
+                  <Link
                     key={item.id}
                     to={`/blog/${item.id}`}
                     className={`flex gap-4 group ${blog.id === item.id ? 'opacity-50' : ''}`}
                   >
-                    <img 
-                      src={item.image} 
+                    <img
+                      src={item.image}
                       alt={item.title}
                       className="w-20 h-16 rounded-lg object-cover"
                     />
