@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Shield, Settings, Users, FileCheck } from "lucide-react";
 import SEO from "@/components/SEO";
+import safetyImage from "@/assets/safety.jpg";
 
 const safetyFeatures = [
   {
@@ -101,7 +102,7 @@ const SafetyPage = () => {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+                src={safetyImage}
                 alt="Safety equipment"
                 className="rounded-lg w-full"
               />

@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    overflow-x: clip;
+  }
+
   :root {
     /* Core Colors - Industrial Dark Theme */
     --background: 0 0% 100%;
@@ -48,12 +52,12 @@
     --industrial-gray: 0 0% 40%;
     --industrial-light: 0 0% 96%;
     --brass-gold: 43 76% 49%;
-    
+
     /* Gradient definitions */
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 6%) 0%, hsl(0 0% 8%) 25%, hsl(0 0% 10%) 50%, hsl(0 0% 12%) 75%, hsl(0 0% 14%) 100%);
     --gradient-light: linear-gradient(180deg, hsl(0 0% 96%) 0%, hsl(0 0% 97%) 25%, hsl(0 0% 98%) 50%, hsl(0 0% 99%) 75%, hsl(0 0% 100%) 100%);
     --gradient-orange: linear-gradient(135deg, hsl(24 100% 52%) 0%, hsl(24 100% 45%) 100%);
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
@@ -99,7 +103,7 @@
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 24 100% 52%;
-    
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -125,12 +129,18 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-raleway font-bold tracking-tight;
   }
 }
 
 @layer utilities {
+
   /* Text stroke utility for outlined text */
   .text-stroke {
     -webkit-text-stroke: 2px currentColor;
@@ -196,6 +206,7 @@
     0% {
       transform: translateX(0%);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -211,6 +222,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -226,6 +238,7 @@
     from {
       clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
     }
+
     to {
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }

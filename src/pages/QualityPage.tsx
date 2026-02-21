@@ -193,8 +193,8 @@ const QualityPage = () => {
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-primary font-bold">M PATEL</p>
-                    <p className="text-white/60 text-sm">CEO & Founder</p>
+                    <p className="text-primary font-bold">H PATEL</p>
+                    <p className="text-white/60 text-sm">Founder</p>
                   </div>
                 </div>
               </div>

@@ -139,24 +139,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Map - Jamnagar, Gujarat */}
-      <section className="py-16">
-        <div className="container">
-          <div className="w-full rounded-3xl overflow-hidden shadow-xl border border-border/50">
-            <iframe
-              title="Meltech Location - Jamnagar, Gujarat"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6067.9637298981015!2d70.057158!3d22.471743!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3957154934c04597%3A0xe8b7dd81a49b75ca!2sJamnagar%2C%20Gujarat!5e1!3m2!1sen!2sin!4v1770451800603!5m2!1sen!2sin"
-              className="w-full h-[450px] border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <p className="mt-3 text-center text-sm text-muted-foreground">
-            GIDC Industrial Estate, Jamnagar, Gujarat
-          </p>
-        </div>
-      </section>
 
       <Footer />
     </div>

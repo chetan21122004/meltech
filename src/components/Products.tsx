@@ -44,7 +44,7 @@ const ProductCard = ({
     <motion.div
       ref={cardRef}
       style={{ scale, opacity }}
-      className="sticky top-16 md:top-20 h-[500px] md:h-[80vh] min-h-[500px] md:min-h-[600px] mb-6 md:mb-12"
+      className="sticky top-16 md:top-20 h-[500px] md:h-[80vh] min-h-[500px] md:min-h-[600px] "
     >
       <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl">
         {/* Background Image */}

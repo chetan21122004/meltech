@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { MapPin, ArrowUpRight } from "lucide-react";
-import process1 from "@/assets/process-1.jpg";
+import process1 from "@/assets/process-1.png";
 import process2 from "@/assets/process-2.jpg";
 import process3 from "@/assets/process-3.jpg";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
+import product1 from "@/assets/process-4.png";
+import product2 from "@/assets/process-5.png";
+import product3 from "@/assets/process-6.png";
 
 const steps = [
   {

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import img00 from "@/assets/products/00.png";
 import img03 from "@/assets/products/03.png";
 import img04 from "@/assets/products/04.png";
@@ -82,9 +83,9 @@ const Performance = () => {
                 <p className="text-muted-foreground mb-4">
                   High-grip threaded and knurled inserts for leak-proof performance.
                 </p>
-                <a href="#" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                <Link to="/products/brass-cpvc-upvc-inserts" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                   Learn More <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -111,9 +112,9 @@ const Performance = () => {
                     Sheet Metal
                   </span>
                   <h4 className="text-lg font-bold text-foreground mb-2">Stamping Components</h4>
-                  <a href="#" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+                  <Link to="/products/stamping-components" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
                     View Details <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -138,9 +139,9 @@ const Performance = () => {
                     Precision Parts
                   </span>
                   <h4 className="text-lg font-bold text-foreground mb-2">CNC Machined Parts</h4>
-                  <a href="#" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+                  <Link to="/products/turning-components" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
                     View Details <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

@@ -93,12 +93,18 @@ const Footer = () => {
                 { name: "Micro Turning Components", href: "/products/micro-turning-components" },
                 { name: "Turning Components", href: "/products/turning-components" },
                 { name: "Brass CNC Parts", href: "/products/brass-cnc-parts" },
-                { name: "Stamping & Sheet Cutting", href: "/products" },
-                { name: "Brass Gas Parts", href: "/products" },
-                { name: "Sliding Head Components", href: "/products" },
-                { name: "Turn-Mill Parts", href: "/products" },
-                { name: "Brass Electrical Parts", href: "/products" },
-                { name: "Hydraulic & Pneumatic Parts", href: "/products" }
+                { name: "Stamping & Sheet Cutting", href: "/products/stamping-components" },
+                { name: "Brass Gas Parts", href: "/products/brass-gas-parts" },
+                { name: "Sliding Head Components", href: "/products/sliding-head-components" },
+                { name: "Turn-Mill Parts", href: "/products/turn-mill-parts" },
+                { name: "Brass Electrical Parts", href: "/products/brass-electrical-parts" },
+                { name: "Hydraulic & Pneumatic Parts", href: "/products/hydraulic-pneumatic-parts" },
+                { name: "Plastic Injection Moulding", href: "/products/plastic-injection-moulding" },
+                { name: "Auto Gas Parts", href: "/products/auto-gas-parts" },
+                { name: "Brass Fasteners", href: "/products/brass-fasteners" },
+                { name: "Rubber Moulding", href: "/products/rubber-moulding" },
+                { name: "Assembly Products", href: "/products/assembly-products" },
+                { name: "Brass Rods", href: "/products/brass-rods" }
               ].map((product) => (
                 <li key={product.name}>
                   <Link to={product.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">

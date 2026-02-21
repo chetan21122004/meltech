@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight, Building2, HardHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import aboutComponents from "@/assets/about-components.jpg";
 import aboutBuilding from "@/assets/about-building.jpg";
 
@@ -39,12 +40,14 @@ const About = () => {
               </div>
             </div>
             <div className="mt-6">
-              <Button variant="industrial" size="lg" className="gap-2 pr-2">
-                LEARN MORE
-                <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
-                  <ArrowUpRight className="w-4 h-4 text-card-foreground" />
-                </span>
-              </Button>
+              <Link to="/about">
+                <Button variant="industrial" size="lg" className="gap-2 pr-2">
+                  LEARN MORE
+                  <span className="w-8 h-8 rounded-full bg-card flex items-center justify-center">
+                    <ArrowUpRight className="w-4 h-4 text-card-foreground" />
+                  </span>
+                </Button>
+              </Link>
             </div>
           </motion.div>
 
@@ -61,7 +64,7 @@ const About = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
               {/* Components image - left of text block */}
-              <div className="flex-shrink-0 w-full sm:w-[52%] lg:min-w-0">
+              <div className="w-full sm:w-[45%] lg:min-w-0">
                 <div className="relative rounded-3xl overflow-hidden aspect-video sm:aspect-[3/4] min-h-[200px] sm:min-h-[320px]">
                   <img
                     src={aboutComponents}

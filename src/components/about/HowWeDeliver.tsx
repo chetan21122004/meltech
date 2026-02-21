@@ -10,21 +10,21 @@ const processes = [
     number: "01",
     title: "CNC & Turning",
     description: "High-precision CNC and sliding-head turning ensure tight tolerances for brass, steel, and alloys.",
-    link: "#",
+    link: "/quality",
   },
   {
     icon: Scissors,
     number: "02",
     title: "Stamping & Cutting",
     description: "Precision stamping and sheet cutting processes create consistent, durable, and complex components.",
-    link: "#",
+    link: "/quality",
   },
   {
     icon: Package,
     number: "03",
     title: "Molding & Assembly",
     description: "Plastic and rubber molding combined with product assembly delivers fully integrated solutions.",
-    link: "#",
+    link: "/quality",
   },
 ];
 
@@ -53,7 +53,7 @@ const HowWeDeliver = () => {
             How We Deliver<br />Precision & Reliability
           </h2>
         </motion.div>
-        
+
         {/* Process Cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {processes.map((process, index) => (
@@ -68,26 +68,26 @@ const HowWeDeliver = () => {
               <div className="absolute right-8 top-10 text-[110px] font-raleway font-extrabold leading-none text-transparent" style={{ WebkitTextStroke: '2px hsl(var(--primary))' }}>
                 {process.number}
               </div>
-              
+
               {/* Icon */}
               <div className="relative mb-10">
                 <process.icon className="w-14 h-14 text-primary stroke-1" />
               </div>
-              
+
               {/* Title */}
               <h3 className="relative text-2xl font-bold text-foreground mb-4">
                 <Link to={process.link} className="hover:text-primary transition-colors">
                   {process.title}
                 </Link>
               </h3>
-              
+
               {/* Description */}
               <p className="relative text-muted-foreground leading-relaxed mb-8">
                 {process.description}
               </p>
-              
+
               {/* Read More Link */}
-              <Link 
+              <Link
                 to={process.link}
                 className="relative inline-flex items-center gap-2 text-primary font-bold text-lg hover:gap-3 transition-all"
               >

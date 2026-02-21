@@ -96,14 +96,6 @@ const Testimonials = () => {
               <span className="text-foreground font-semibold">industry-leading OEMs</span>
             </div>
           </div>
-
-          {/* Discover More button */}
-          <Button variant="industrial" size="lg" className="gap-2 pr-2">
-            DISCOVER MORE
-            <span className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center">
-              <ArrowUpRight className="w-5 h-5 text-background" />
-            </span>
-          </Button>
         </motion.div>
 
         {/* Testimonial Content */}
@@ -182,8 +174,8 @@ const Testimonials = () => {
           ))}
         </motion.div>
 
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 
