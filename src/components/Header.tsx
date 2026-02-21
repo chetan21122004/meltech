@@ -53,7 +53,7 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`hover:text-primary transition-colors font-medium text-sm ${isActive ? 'text-primary' : 'text-card'}`}
+                className={`hover:text-primary transition-colors font-medium text-md ${isActive ? 'text-primary' : 'text-card'}`}
               >
                 {link.name}
               </a>
