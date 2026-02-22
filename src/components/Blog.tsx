@@ -2,33 +2,8 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Calendar, User } from "lucide-react";
-import aboutImage from "@/assets/about-image.jpg";
-import process1 from "@/assets/process-1.jpg";
-import process2 from "@/assets/process-2.jpg";
-
-const blogs = [
-  {
-    category: "Manufacturing",
-    date: "Jan 15, 2024",
-    author: "Admin",
-    title: "Precision Engineering Tips For Better Component Quality",
-    image: aboutImage,
-  },
-  {
-    category: "Industry News",
-    date: "Jan 10, 2024",
-    author: "Admin",
-    title: "Latest Trends in CNC Machining Technology",
-    image: process1,
-  },
-  {
-    category: "Quality Control",
-    date: "Jan 05, 2024",
-    author: "Admin",
-    title: "How We Ensure 100% Quality in Every Batch",
-    image: process2,
-  },
-];
+import { Link } from "react-router-dom";
+import { blogs } from "@/data/blogs";
 
 const Blog = () => {
   const ref = useRef(null);
@@ -64,9 +39,9 @@ const Blog = () => {
             >
               <div className="bg-secondary rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300">
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
-                  <img 
-                    src={blog.image} 
+                <Link to={`/blog/${blog.id}`} className="block relative h-56 overflow-hidden">
+                  <img
+                    src={blog.image}
                     alt={blog.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
@@ -75,7 +50,7 @@ const Blog = () => {
                       {blog.category}
                     </span>
                   </div>
-                </div>
+                </Link>
 
                 {/* Content */}
                 <div className="p-6">
@@ -89,13 +64,15 @@ const Blog = () => {
                       {blog.author}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-card-foreground mb-4 group-hover:text-primary transition-colors">
-                    {blog.title}
-                  </h3>
-                  <a href="#" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                  <Link to={`/blog/${blog.id}`}>
+                    <h3 className="text-xl font-bold text-card-foreground mb-4 group-hover:text-primary transition-colors">
+                      {blog.title}
+                    </h3>
+                  </Link>
+                  <Link to={`/blog/${blog.id}`} className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                     Read More
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.article>

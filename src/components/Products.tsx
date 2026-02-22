@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { products as sourceProducts } from "@/data/products";
 
 const featuredIds = [
@@ -14,6 +15,7 @@ const products = featuredIds.map(item => {
   const p = sourceProducts.find(sp => sp.id === item.id);
   return {
     ...item,
+    id: p?.id || item.id,
     category: p?.category || "Components",
     location: p?.location || "Industrial",
     title: p?.title || "Product",
@@ -83,12 +85,12 @@ const ProductCard = ({
 
             {/* Arrow Button - bottom right */}
             <div className="flex justify-end mt-6">
-              <a
-                href="#"
+              <Link
+                to={`/products/${product.id}`}
                 className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform duration-300 shadow-lg"
               >
                 <ArrowUpRight className="w-6 h-6" strokeWidth={2.5} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -118,15 +120,15 @@ const ProductCard = ({
                 {product.description}
               </p>
 
-              <a
-                href="#"
+              <Link
+                to={`/products/${product.id}`}
                 className="flex items-center justify-between w-full p-1 pl-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full group"
               >
                 <span className="text-white font-medium text-sm">View Details</span>
                 <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center group-active:scale-95 transition-transform">
                   <ArrowUpRight className="w-5 h-5 text-black" />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

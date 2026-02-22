@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import aboutBuilding from "@/assets/about-building.jpg";
 import aboutComponents from "@/assets/about-components.jpg";
 import aboutImage from "@/assets/about-image.jpg";
+import hpatel from "@/assets/founder.png";
 
 const features = [
   "High-precision CNC & sliding-head turning",
@@ -18,7 +19,7 @@ const AboutIntro = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative  md:py-24 lg:py-32 overflow-hidden" ref={ref}>
+    <section className="relative  md:py-8 lg:py-16 overflow-hidden" ref={ref}>
       {/* Large "ABOUT" vertical text on left edge */}
       <div className="absolute left-2 top-20 hidden lg:block pointer-events-none select-none">
         <span
@@ -99,6 +100,7 @@ const AboutIntro = () => {
                   </div>
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-muted bg-muted">
                     {/* Placeholder or generic avatar if no specific image provided */}
+                    <img src={hpatel} alt="hpatel" className="w-full h-full object-cover  " />
                     <div className="w-full h-full bg-gray-200" />
                   </div>
                 </div>

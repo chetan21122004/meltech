@@ -1,115 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import aboutImage from "@/assets/about-image.jpg";
-import process1 from "@/assets/process-1.jpg";
-import process2 from "@/assets/process-2.jpg";
+import { blogs } from "@/data/blogs";
 import SEO from "@/components/SEO";
-
-const blogs = [
-  {
-    id: "precision-engineering-trends-2025",
-    title: "Precision Engineering Trends Shaping 2025",
-    category: "Manufacturing",
-    heroDescription: "Discover the latest innovations redefining precision engineering in 2025—from CNC automation and digital manufacturing to smarter, more efficient processes.",
-    image: aboutImage,
-    content: {
-      intro: "As industries evolve, precision engineering continues to redefine global manufacturing standards. In 2025, new technologies and practices are accelerating innovation and efficiency.",
-      bulletPoints: [
-        "Adoption of AI-powered CNC machining",
-        "Automation and robotics in production",
-        "Integration of IIoT for real-time monitoring"
-      ],
-      body: "With demand for tighter tolerances and faster production, companies are adopting hybrid machining, additive manufacturing, and automated inspection systems. These ensure accuracy while reducing time-to-market.",
-      sections: [
-        {
-          title: "1. Smart Factories & Digital Twins",
-          content: "Digital twin technology is transforming the way manufacturers design and monitor components. Virtual simulations allow predictive maintenance and better product lifecycle management."
-        },
-        {
-          title: "2. Sustainable Materials & Eco-Processes",
-          content: "Manufacturers are shifting towards recyclable alloys, energy-efficient machining, and waste-reduction practices. Green engineering is no longer optional—it's a global mandate."
-        },
-        {
-          title: "3. Micro-Machining & Multi-Axis CNC",
-          content: "The demand for micro-components in electronics and medical devices is driving investments in 5-axis and Swiss-type CNC machines capable of sub-micron precision."
-        }
-      ],
-      quote: {
-        text: "The future of manufacturing lies in precision, speed, and sustainability—those who evolve will lead.",
-        author: "Industry Expert"
-      }
-    }
-  },
-  {
-    id: "sustainability-modern-manufacturing",
-    title: "Sustainability In Modern Manufacturing",
-    category: "Sustainability",
-    heroDescription: "How modern manufacturers are integrating sustainable practices in their operations while maintaining precision.",
-    image: process1,
-    content: {
-      intro: "Sustainability is no longer a buzzword—it's a business imperative. Modern manufacturers are finding innovative ways to reduce waste, conserve energy, and minimize environmental impact.",
-      bulletPoints: [
-        "Energy-efficient machining processes",
-        "Recyclable material selection",
-        "Waste reduction and circular economy"
-      ],
-      body: "From selecting eco-friendly raw materials to implementing energy-efficient CNC processes, the manufacturing industry is undergoing a green transformation.",
-      sections: [
-        {
-          title: "1. Green Manufacturing Practices",
-          content: "Companies are adopting lean manufacturing principles to minimize waste while maximizing output quality and efficiency."
-        },
-        {
-          title: "2. Energy Management",
-          content: "Smart energy monitoring systems help track and optimize power consumption across production lines."
-        },
-        {
-          title: "3. Circular Economy Approach",
-          content: "Designing products for recyclability and implementing material recovery programs are becoming standard practices."
-        }
-      ],
-      quote: {
-        text: "Sustainable manufacturing isn't just good for the planet—it's good for business.",
-        author: "Sustainability Director"
-      }
-    }
-  },
-  {
-    id: "industries-we-serve-globally",
-    title: "Industries We Serve Across The Globe",
-    category: "Industry News",
-    heroDescription: "A look at the diverse industries we serve and how precision manufacturing enables innovation across sectors worldwide.",
-    image: process2,
-    content: {
-      intro: "Our precision-engineered components find applications across a wide spectrum of industries, from automotive to aerospace, medical to consumer electronics.",
-      bulletPoints: [
-        "Automotive and electric vehicles",
-        "Aerospace and defense",
-        "Medical devices and equipment"
-      ],
-      body: "Each industry has unique requirements for precision, durability, and performance. Our expertise allows us to meet these diverse needs with customized solutions.",
-      sections: [
-        {
-          title: "1. Automotive Excellence",
-          content: "From fuel injection systems to electric vehicle components, our parts meet the demanding standards of the automotive industry."
-        },
-        {
-          title: "2. Aerospace Precision",
-          content: "When failure is not an option, aerospace manufacturers trust our certified components for critical applications."
-        },
-        {
-          title: "3. Medical Innovation",
-          content: "Biocompatible materials and micro-precision enable life-saving medical devices and instruments."
-        }
-      ],
-      quote: {
-        text: "Precision manufacturing is the backbone of innovation across every industry.",
-        author: "Global Operations Director"
-      }
-    }
-  }
-];
 
 const BlogDetailPage = () => {
   const { blogId } = useParams();
@@ -135,22 +28,24 @@ const BlogDetailPage = () => {
         </div>
 
         <div className="container relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-card-foreground mb-6">
-              {blog.title}
-            </h1>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                {blog.title}
+              </h1>
 
-            <div className="flex items-center gap-3 text-muted-foreground mb-8">
-              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-              <span>-</span>
-              <span className="text-primary">{blog.title}</span>
+              <div className="flex items-center gap-3 text-sm">
+                <Link to="/blog" className="text-white/70 hover:text-primary transition-colors">Blog</Link>
+                <span className="text-white/30">--</span>
+                <span className="text-white/90 font-medium">{blog.title}</span>
+              </div>
             </div>
-          </div>
 
-          <div className="absolute right-8 top-1/2 -translate-y-1/2 max-w-sm hidden lg:block">
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {blog.heroDescription}
-            </p>
+            <div className="lg:max-w-md">
+              <p className="text-white/80 text-base leading-relaxed font-medium">
+                {blog.heroDescription}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -162,25 +57,31 @@ const BlogDetailPage = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Featured Image */}
-              <div className="rounded-3xl overflow-hidden mb-8">
+              <div className="relative rounded-[2.5rem] overflow-hidden mb-12 shadow-2xl group">
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute bottom-0 right-0 bg-background p-6 rounded-tl-[2.5rem] hidden md:block">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-primary/20" />
+                    <div className="w-3 h-3 rounded-full bg-primary" />
+                  </div>
+                </div>
               </div>
 
               {/* Title & Intro */}
-              <h2 className="text-3xl font-bold text-foreground mb-6">{blog.title}</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <h2 className="text-4xl font-black text-[#1a1a1a] mb-8 leading-tight">{blog.title}</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8 font-medium">
                 {blog.content.intro}
               </p>
 
               {/* Bullet Points */}
-              <ul className="space-y-2 mb-8">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                 {blog.content.bulletPoints.map((point, index) => (
-                  <li key={index} className="flex items-center gap-3 text-muted-foreground">
-                    <span className="w-2 h-2 rounded-full bg-primary" />
+                  <li key={index} className="flex items-center gap-3 text-muted-foreground font-bold">
+                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(234,88,12,0.5)]" />
                     {point}
                   </li>
                 ))}
@@ -199,41 +100,54 @@ const BlogDetailPage = () => {
               ))}
 
               {/* Quote */}
-              <div className="bg-secondary rounded-2xl p-8 mb-8">
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl text-primary font-serif">"</div>
+              <div className="bg-slate-50/80 rounded-[2rem] p-10 mb-12 border border-slate-100/50">
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-primary/20 transform -rotate-3">
+                    <span className="text-white text-4xl font-black rotate-3">"</span>
+                  </div>
                   <div>
-                    <p className="text-foreground font-medium mb-2">
+                    <p className="text-xl font-bold text-[#1a1a1a] mb-6 italic leading-relaxed">
                       {blog.content.quote.text}
                     </p>
-                    <p className="text-primary text-sm">— {blog.content.quote.author}</p>
+                    <div className="flex items-center gap-4">
+                      <div className="h-px w-8 bg-primary/30" />
+                      <p className="text-primary font-black uppercase text-sm tracking-wider">--- {blog.content.quote.author}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Sidebar */}
-            <div>
-              <h4 className="text-lg font-bold text-foreground mb-6">All Posts</h4>
-              <div className="space-y-4">
-                {blogs.map((item) => (
-                  <Link
-                    key={item.id}
-                    to={`/blog/${item.id}`}
-                    className={`flex gap-4 group ${blog.id === item.id ? 'opacity-50' : ''}`}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-20 h-16 rounded-lg object-cover"
-                    />
-                    <div>
-                      <h5 className="font-bold text-foreground text-sm group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h5>
-                    </div>
-                  </Link>
-                ))}
+            <div className="lg:block">
+              <div className="sticky top-32 self-start">
+                <h4 className="text-xl font-black text-[#1a1a1a] mb-8 relative inline-block">
+                  All Posts
+                  <div className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full transition-all duration-300" />
+                </h4>
+
+                <div className="space-y-8">
+                  {blogs.map((item) => (
+                    <Link
+                      key={item.id}
+                      to={`/blog/${item.id}`}
+                      className={`flex gap-6 group items-center ${blog.id === item.id ? 'opacity-50 pointer-events-none' : ''}`}
+                    >
+                      <div className="relative shrink-0 overflow-hidden rounded-2xl shadow-md bg-slate-100">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-24 h-20 object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <h5 className="font-black text-[#1a1a1a] text-[15px] leading-tight group-hover:text-primary transition-colors">
+                          {item.title}
+                        </h5>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

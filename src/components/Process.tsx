@@ -236,24 +236,20 @@ const Process = () => {
                       : "opacity-0 translate-y-8 absolute bottom-0 left-0 right-0 p-8 pointer-events-none"
                       }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span className="text-primary font-medium tracking-wide text-base">{step.category}</span>
+                    <div className="flex items-center text-2xl gap-2">
+                      <MapPin className="w-6 h-6 text-primary" />
+                      <span className="text-primary  tracking-wide font-bold ">{step.category}</span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white leading-tight whitespace-nowrap">
+                    <h3 className="text-3xl font-bold text-white leading-tight whitespace-nowrap">
                       {step.fullTitle}
                     </h3>
 
-                    <p className="text-white/80 text-sm leading-relaxed max-w-[95%] line-clamp-3">
+                    <p className="text-white/80 text-md leading-relaxed max-w-[95%] line-clamp-3">
                       {step.description}
                     </p>
 
-                    <div className="pt-2">
-                      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-colors duration-300">
-                        <ArrowUpRight className="w-5 h-5" />
-                      </span>
-                    </div>
+
                   </div>
                 </div>
               </motion.div>

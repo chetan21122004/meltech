@@ -11,6 +11,8 @@ import counter04 from "@/assets/quality/counter-04.svg";
 import quality from "@/assets/quality/quality.jpg";
 import card2 from "@/assets/quality/card-2.png";
 import card1 from "@/assets/quality/card-1.png";
+import hpatel from "@/assets/founder.png";
+
 
 const qualityFeatures = [
   {
@@ -231,7 +233,7 @@ const QualityPage = () => {
 
                 <div className="flex items-center gap-4 bg-muted/30 p-4 rounded-2xl">
                   <div className="w-14 h-14 rounded-full border-2 border-primary overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="H Patel" className="w-full h-full object-cover" />
+                    <img src={hpatel} alt="H Patel" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-primary font-black uppercase tracking-tight">H PATEL</h4>

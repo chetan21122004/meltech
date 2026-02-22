@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Ruler, Layers, Sparkles } from "lucide-react";
 import { products } from "@/data/products";
 import SEO from "@/components/SEO";
-
+import productImg from "@/assets/product-comn.jpg";
 const ProductDetailPage = () => {
   const { productId } = useParams();
   const product = products.find(p => p.id === productId) || products[0];
@@ -68,43 +68,68 @@ const ProductDetailPage = () => {
             {product.title}
           </h2>
 
-          {/* Main Product Image */}
-          <div className="rounded-3xl overflow-hidden mb-12">
-            <img
-              src={product.image}
-              alt={product.title}
-              className="w-full h-[400px] md:h-[500px] object-cover"
-            />
-          </div>
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start">
+            {/* Left: Product Image */}
+            <div className="rounded-[2.5rem] overflow-hidden bg-muted border border-border/50 shadow-2xl h-[400px] md:h-[600px] group">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
 
-          {/* Specs Row */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
-                <Ruler className="w-6 h-6 text-primary" />
+            {/* Right: Specs & Quick Info */}
+            <div className="flex flex-col gap-6">
+              <div className="bg-[#0D0D0D] rounded-[2.5rem] p-8 md:p-10 border border-white/10 flex-grow shadow-2xl flex flex-col justify-center">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                  <span className="w-1.5 h-6 bg-primary rounded-full" />
+                  Technical Specifications
+                </h3>
+
+                <div className="grid gap-5">
+                  <div className="flex items-center gap-5 p-5 rounded-2xl bg-white/5 border border-white/5 group hover:bg-white/10 transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                      <Ruler className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <span className="text-primary/70 text-[10px] uppercase tracking-[0.2em] font-bold">Size Range</span>
+                      <p className="font-bold text-white text-lg md:text-xl leading-none mt-1">{product.sizeRange}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-5 p-5 rounded-2xl bg-white/5 border border-white/5 group hover:bg-white/10 transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                      <Layers className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <span className="text-primary/70 text-[10px] uppercase tracking-[0.2em] font-bold">Material</span>
+                      <p className="font-bold text-white text-base md:text-lg leading-tight mt-1">{product.material}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-5 p-5 rounded-2xl bg-white/5 border border-white/5 group hover:bg-white/10 transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                      <Sparkles className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <span className="text-primary/70 text-[10px] uppercase tracking-[0.2em] font-bold">Coating & Finish</span>
+                      <p className="font-bold text-white text-lg md:text-xl leading-none mt-1">{product.coating}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <span className="text-muted-foreground text-sm">Size Range</span>
-                <p className="font-bold text-foreground">{product.sizeRange}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
-                <Layers className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <span className="text-muted-foreground text-sm">Material</span>
-                <p className="font-bold text-foreground text-sm">{product.material}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <span className="text-muted-foreground text-sm">Coating & Finish</span>
-                <p className="font-bold text-foreground">{product.coating}</p>
-              </div>
+
+              {/* Quick Contact Link */}
+              <Link to="/contact" className="bg-orange-50/80 rounded-[2rem] p-8 border border-orange-100 flex items-center justify-between group hover:bg-orange-50 transition-all shadow-sm">
+                <div>
+                  <p className="text-primary font-bold text-xl mb-1">Need custom dimensions?</p>
+                  <p className="text-muted-foreground text-sm font-medium">Our engineering team can help with your requirements.</p>
+                </div>
+                <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center group-hover:translate-x-2 transition-transform shadow-lg">
+                  <ArrowRight className="w-6 h-6" />
+                </div>
+              </Link>
             </div>
           </div>
 
@@ -118,11 +143,11 @@ const ProductDetailPage = () => {
 
           {/* Key Details & Image Grid */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div className="rounded-3xl overflow-hidden">
+            <div className="rounded-[2.5rem] overflow-hidden bg-muted border border-border/50 h-80 group">
               <img
-                src={product.image}
+                src={productImg}
                 alt={product.title}
-                className="w-full h-80 object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
             </div>
             <div>

@@ -1,31 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import aboutImage from "@/assets/about-image.jpg";
-import process1 from "@/assets/process-1.jpg";
-import process2 from "@/assets/process-2.jpg";
+import { blogs } from "@/data/blogs";
 import SEO from "@/components/SEO";
-
-const blogs = [
-  {
-    id: "precision-engineering-trends-2025",
-    category: "Manufacturing",
-    title: "Precision Engineering Trends Shaping 2025",
-    image: aboutImage,
-  },
-  {
-    id: "sustainability-modern-manufacturing",
-    category: "Sustainability",
-    title: "Sustainability In Modern Manufacturing",
-    image: process1,
-  },
-  {
-    id: "industries-we-serve-globally",
-    category: "Industry News",
-    title: "Industries We Serve Across The Globe",
-    image: process2,
-  },
-];
 
 const BlogPage = () => {
   return (
@@ -42,7 +19,7 @@ const BlogPage = () => {
         <div className="absolute inset-0 bg-card">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{ backgroundImage: `url(${aboutImage})` }}
+            style={{ backgroundImage: `url(${blogs[0]?.image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-card via-card/80 to-transparent" />
         </div>
