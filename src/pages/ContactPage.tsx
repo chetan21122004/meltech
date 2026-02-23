@@ -51,53 +51,34 @@ const ContactPage = () => {
       <section className="py-24 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Form - Light theme */}
-            <div className="bg-white rounded-4xl p-8 shadow-xl border border-border/50">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-[2px] bg-primary" />
-                <span className="text-primary font-medium text-sm">KEEP IN TOUCH</span>
+            {/* Form - Embedded Google Form */}
+            <div className="bg-white rounded-4xl p-0 shadow-xl border border-border/50 overflow-hidden min-h-[1000px] flex flex-col">
+              <div className="p-8 pb-4 text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <span className="w-8 h-[2px] bg-primary" />
+                  <span className="text-primary font-medium text-sm">KEEP IN TOUCH</span>
+                  <span className="w-8 h-[2px] bg-primary" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Get In Touch With Our Support Team
+                </h2>
+                <p className="text-muted-foreground text-sm max-w-md mx-auto">
+                  Please fill out the form below. Our team will get back to you within 24 hours.
+                </p>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-                Get In Touch With Our Support Team
-              </h2>
 
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
-                  />
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Service / Inquiry"
-                    className="w-full px-6 py-4 bg-muted rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary border border-transparent focus:border-primary/30"
-                  />
-                </div>
-                <textarea
-                  placeholder="Your Message"
-                  rows={5}
-                  className="w-full px-6 py-4 bg-muted rounded-3xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none border border-transparent focus:border-primary/30"
-                />
-                <Button variant="industrial" size="lg" className="gap-2 pr-2">
-                  SUBMIT NOW
-                  <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <ArrowUpRight className="w-4 h-4 text-primary" />
-                  </span>
-                </Button>
-              </form>
+              <div className="flex-grow w-full">
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSeyDe9-xYt6sH_2SXjTmr5TeDX2yhMazscLkDaeJJtYuG4wLw/viewform?embedded=true"
+                  className="w-full h-[1000px]"
+                  title="Contact Form"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                >
+                  Loading…
+                </iframe>
+              </div>
             </div>
 
             {/* Contact Info */}

@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Linkedin, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
@@ -44,16 +44,12 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <span className="text-sm text-muted-foreground">FOLLOW US:</span>
               <div className="flex gap-2">
-                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                  <Facebook className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                  <Instagram className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                  <Twitter className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
+                <a
+                  href="https://www.linkedin.com/company/meltech-melting-technology"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors"
+                >
                   <Linkedin className="w-4 h-4" />
                 </a>
               </div>

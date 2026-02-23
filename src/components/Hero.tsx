@@ -229,11 +229,14 @@ const Hero = () => {
         {/* Bottom Social Links */}
         <div className="absolute bottom-4 left-0 right-0 md:right-auto md:bottom-8 bg-card/80 backdrop-blur-sm py-4 px-8 flex justify-center md:justify-start z-10">
           <div className="flex items-center gap-4 text-card-foreground text-xs md:text-sm">
-            <a href="#" className="hover:text-primary transition-colors">Facebook</a>
-            <span className="text-muted-foreground">—</span>
-            <a href="#" className="hover:text-primary transition-colors">Instagram</a>
-            <span className="text-muted-foreground">—</span>
-            <a href="#" className="hover:text-primary transition-colors">Twitter</a>
+            <a
+              href="https://www.linkedin.com/company/meltech-melting-technology"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </section>

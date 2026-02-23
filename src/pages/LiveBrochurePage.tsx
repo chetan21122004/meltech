@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Download } from "lucide-react";
 import aboutImage from "@/assets/about-image.jpg";
-import brochurePdf from "@/assets/meltech_bror.pdf";
+import brochurePdf from "@/assets/Meltech.pdf";
 import SEO from "@/components/SEO";
 
 const LiveBrochurePage = () => {
