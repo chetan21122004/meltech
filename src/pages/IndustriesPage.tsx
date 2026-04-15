@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import constructionImg from "@/assets/industry/construction.png";
+import railwayImg from "@/assets/industry/railway.png";
+import appliancesImg from "@/assets/industry/appliances.png";
 
 const industries = [
   {
@@ -65,6 +68,21 @@ const industries = [
     title: "Consumer Goods",
     description: "Everyday precision solutions powering durable consumer products worldwide.",
     image: "https://media.istockphoto.com/id/1219933495/photo/shopping-trolley-cart.jpg?s=612x612&w=0&k=20&c=_sEmK6BacdNMpla5zFSMmNNX0QdseZnDo61oPDtfBFE=",
+  },
+  {
+    title: "Construction Industry",
+    description: "Reliable precision components for heavy-duty construction equipment and infrastructure systems.",
+    image: constructionImg,
+  },
+  {
+    title: "Railway Industry",
+    description: "Durable brass and precision parts engineered for rail systems, safety, and long service life.",
+    image: railwayImg,
+  },
+  {
+    title: "Home Appliances Industry",
+    description: "High-accuracy components supporting efficient, dependable performance in home appliances.",
+    image: appliancesImg,
   },
 ];
 

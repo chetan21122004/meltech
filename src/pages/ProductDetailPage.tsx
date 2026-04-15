@@ -121,7 +121,7 @@ const ProductDetailPage = () => {
               </div>
 
               {/* Quick Contact Link */}
-              <Link to="/contact" className="bg-orange-50/80 rounded-[2rem] p-8 border border-orange-100 flex items-center justify-between group hover:bg-orange-50 transition-all shadow-sm">
+              <Link to="/contact" className="bg-primary/10 rounded-[2rem] p-8 border border-primary/20 flex items-center justify-between group hover:bg-primary/15 transition-all shadow-sm">
                 <div>
                   <p className="text-primary font-bold text-xl mb-1">Need custom dimensions?</p>
                   <p className="text-muted-foreground text-sm font-medium">Our engineering team can help with your requirements.</p>

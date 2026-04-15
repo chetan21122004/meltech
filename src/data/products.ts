@@ -15,6 +15,8 @@ import img13 from "@/assets/products/13.png";
 import img14 from "@/assets/products/14.png";
 import img15 from "@/assets/products/15.png";
 import img16 from "@/assets/products/16.png";
+import img17 from "@/assets/products/hvac.png";
+import img18 from "@/assets/products/brass_sense.png";
 
 export const products = [
     {
@@ -360,5 +362,47 @@ export const products = [
         },
         approach: "We manufacture our brass rods with strict quality control processes to ensure consistent alloy composition and mechanical properties, meeting international standards for industrial use.",
         result: "High-performance brass rods that deliver superior machinability and durability for critical components in diverse industries, available in standard and custom sizes."
+    },
+    {
+        id: "hvac-components-brass-precision-parts",
+        title: "HVAC Components (Brass & Precision Parts)",
+        seoTitle: "Brass HVAC Components Manufacturer India",
+        seoDescription: "Precision brass HVAC components including flare nuts, compression fittings, adapters, connectors, and service valve parts for AC and refrigeration systems.",
+        seoKeywords: "brass HVAC components, brass flare nuts, compression fittings, brass adapters, refrigeration fittings, service valve parts, HVAC brass fittings manufacturer",
+        shortDescription: "Precision brass HVAC components engineered for leak-proof connections, high durability, and strong thermal performance in air conditioning and refrigeration systems.",
+        fullDescription: "We manufacture a wide range of precision brass HVAC components including flare nuts, compression fittings, adapters, connectors, and service valve parts. These components are engineered for air conditioning and refrigeration systems, ensuring leak-proof connections, high durability, and excellent thermal performance. Our HVAC components are designed with precision threading, superior surface finish, and high corrosion resistance, making them ideal for demanding environments. We also offer custom-designed parts based on client specifications, drawings, and international standards. These components are widely used in HVAC systems, refrigeration units, cooling systems, and gas distribution applications, ensuring reliable and long-lasting performance.",
+        image: img17,
+        sizeRange: "3mm to 50mm",
+        material: "CuZn39Pb3, CuZn40Pb2, CuZn36Pb2, CW614N, CW617N",
+        coating: "Natural, Nickel Plated, Chrome Plated, Tin Plated",
+        keyDetails: {
+            shape: "Round, Hex, Custom CNC Profiles",
+            applications: "Air Conditioning Systems, Refrigeration Units, HVAC Installations, Gas & Fluid Control Systems",
+            production: "CNC turning, automatic machining, and strict quality control processes",
+            features: "Leak-proof, high corrosion resistance, excellent thermal conductivity, durable service life, perfect dimensional accuracy"
+        },
+        approach: "Meltech Melting Technology ensures precision and reliability in every HVAC component by utilizing advanced CNC machining and high-grade brass materials. We work closely with clients to develop custom HVAC fittings that meet international standards and application-specific requirements. Our manufacturing process focuses on tight tolerances, superior finishing, and consistent quality, ensuring seamless integration into HVAC systems.",
+        result: "The result is a product that delivers high efficiency, leak-proof performance, and long-term durability in HVAC applications, making it ideal for global markets and industrial usage."
+    },
+    {
+        id: "brass-sensor-components",
+        title: "Brass Sensor Components",
+        seoTitle: "Brass Sensor Components Manufacturer India",
+        seoDescription: "Precision brass sensor components including sensor housings, threaded bodies, pressure fittings, and connector parts for automotive, HVAC, and industrial systems.",
+        seoKeywords: "brass sensor components, sensor housings, pressure sensor fittings, threaded sensor bodies, automotive sensor brass parts, HVAC sensor components",
+        shortDescription: "Precision brass sensor components built for accurate sensing, secure installation, and long-term reliability across automotive, HVAC, and industrial applications.",
+        fullDescription: "We produce a wide range of precision brass sensor components, including temperature sensor housings, threaded sensor bodies, pressure sensor fittings, and connector parts used in automotive, HVAC, and industrial applications. These components are designed with high-precision threads and superior surface finishes to ensure accurate sensing, secure installation, and long-term durability. Our range includes components suitable for engine monitoring systems, cooling units, air conditioning systems, and fluid control applications. Manufactured using advanced CNC turning and machining processes, these parts provide excellent dimensional accuracy, corrosion resistance, and high thermal and electrical conductivity. Any type of custom-designed brass sensor component can be developed as per customer drawings, specifications, and international standards. These components are ideal for high-performance environments requiring precision and reliability.",
+        image: img18,
+        sizeRange: "5mm to 40mm",
+        material: "CuZn39Pb3, CuZn40Pb2, CuZn36Pb2, CW614N, CW617N",
+        coating: "Natural, Nickel Plated, Tin Plated, Chrome Plated",
+        keyDetails: {
+            shape: "Round, Hex, Custom CNC Profiles",
+            applications: "Automotive Sensors, HVAC Systems, Temperature & Pressure Monitoring, Industrial Automation",
+            production: "Precision manufactured using CNC turning, automatic machining, and strict quality control processes",
+            features: "High precision threads, excellent conductivity, corrosion resistance, heat resistance, durable and long service life"
+        },
+        approach: "Meltech Melting Technology ensures precision in every sensor component by utilizing high-grade brass alloys and advanced CNC machining technology. We work closely with clients to develop components that meet exact functional and dimensional requirements for sensor applications. Our process emphasizes tight tolerances, superior finishing, and consistent quality, ensuring reliable performance in critical environments.",
+        result: "The result is a product that delivers accurate performance, high durability, and long-term reliability in sensor-based applications across automotive, HVAC, and industrial sectors."
     }
 ];

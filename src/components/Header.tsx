@@ -3,7 +3,7 @@ import { Menu, X, ArrowUpRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo-2.png";
+import logo from "@/assets/logo.png";
 const navLinks = [{
   name: "Home",
   href: "/"

@@ -21,8 +21,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 9%;
 
-    /* Primary - Industrial Orange */
-    --primary: 24 100% 52%;
+    /* Primary - Brass Gold */
+    --primary: 41 56% 51%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Dark Gray */
@@ -34,7 +34,7 @@
     --muted-foreground: 0 0% 40%;
 
     /* Accent */
-    --accent: 24 100% 52%;
+    --accent: 41 56% 51%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -42,28 +42,28 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 24 100% 52%;
+    --ring: 41 56% 51%;
 
     --radius: 0.75rem;
 
     /* Custom Industrial Colors */
-    --industrial-orange: 24 100% 52%;
+    --industrial-orange: 41 56% 51%;
     --industrial-dark: 0 0% 7%;
     --industrial-gray: 0 0% 40%;
     --industrial-light: 0 0% 96%;
-    --brass-gold: 43 76% 49%;
+    --brass-gold: 41 56% 51%;
 
     /* Gradient definitions */
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 6%) 0%, hsl(0 0% 8%) 25%, hsl(0 0% 10%) 50%, hsl(0 0% 12%) 75%, hsl(0 0% 14%) 100%);
     --gradient-light: linear-gradient(180deg, hsl(0 0% 96%) 0%, hsl(0 0% 97%) 25%, hsl(0 0% 98%) 50%, hsl(0 0% 99%) 75%, hsl(0 0% 100%) 100%);
-    --gradient-orange: linear-gradient(135deg, hsl(24 100% 52%) 0%, hsl(24 100% 45%) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(41 56% 51%) 0%, hsl(41 58% 44%) 100%);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
     --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.15);
-    --shadow-orange: 0 10px 40px -10px hsl(24 100% 52% / 0.4);
+    --shadow-orange: 0 10px 40px -10px hsl(41 56% 51% / 0.4);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -85,7 +85,7 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 24 100% 52%;
+    --primary: 41 56% 51%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 15%;
@@ -94,7 +94,7 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 24 100% 52%;
+    --accent: 41 56% 51%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -102,7 +102,7 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 24 100% 52%;
+    --ring: 41 56% 51%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -198,7 +198,7 @@
 
   /* Orange glow effect */
   .glow-orange {
-    box-shadow: 0 0 40px hsl(24 100% 52% / 0.3);
+    box-shadow: 0 0 40px hsl(41 56% 51% / 0.3);
   }
 
   /* Marquee animation */
@@ -259,10 +259,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(24 100% 52%);
+  background: hsl(41 56% 51%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(24 100% 45%);
+  background: hsl(41 58% 44%);
 }
