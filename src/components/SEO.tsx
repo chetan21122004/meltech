@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_NAME = "Meltech Melting Technology";
+const SITE_URL = "https://www.meltechmeltingtechnology.in";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 const DEFAULT_DESCRIPTION =
     "Meltech Melting Technology delivers precision-engineered CNC turned brass components, stamping, molding, and assembly solutions for electrical, gas, hydraulic & pneumatic industries worldwide.";
 const DEFAULT_KEYWORDS =
@@ -22,10 +24,11 @@ const SEO = ({
     keywords = DEFAULT_KEYWORDS,
     canonical,
     ogType = "website",
-    ogImage,
+    ogImage = DEFAULT_OG_IMAGE,
     noIndex = false,
 }: SEOProps) => {
     const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Precision CNC Turned Components Manufacturer in India`;
+    const pageUrl = canonical ?? SITE_URL;
 
     return (
         <Helmet>
@@ -38,14 +41,16 @@ const SEO = ({
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content={ogType} />
-            {ogImage && <meta property="og:image" content={ogImage} />}
-            {canonical && <meta property="og:url" content={canonical} />}
+            <meta property="og:site_name" content={SITE_NAME} />
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:image:alt" content={`${SITE_NAME} - Precision CNC Turned Components Manufacturer`} />
+            <meta property="og:url" content={pageUrl} />
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
-            {ogImage && <meta name="twitter:image" content={ogImage} />}
+            <meta name="twitter:image" content={ogImage} />
 
             {/* Canonical */}
             {canonical && <link rel="canonical" href={canonical} />}
