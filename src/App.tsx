@@ -16,7 +16,6 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import ContactPage from "./pages/ContactPage";
 import LiveBrochurePage from "./pages/LiveBrochurePage";
 import NotFound from "./pages/NotFound";
-import CursorFollower from "./components/CursorFollower";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -25,7 +24,6 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <CursorFollower />
         <Toaster />
         <Sonner />
         <BrowserRouter>
